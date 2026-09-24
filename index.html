@@ -36,16 +36,50 @@
             box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:99;
         }
         .banner{
-            height:540px;background:url("营地封面图.jpg") center/cover;
+            height:100vh;min-height:600px;
             display:flex;align-items:center;padding:0 40px;color:#fff;position:relative;
+            overflow:hidden;
         }
-        .banner::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.4);}
-        .banner-text{position:relative;z-index:2;max-width:720px;}
-        .banner h1{font-size:48px;margin-bottom:14px;}
-        .banner p{font-size:19px;line-height:1.75;opacity:.95;}
+        .banner-bg{
+            position:absolute;inset:-10% 0;background:url("camp-hero.jpg") center/cover no-repeat;
+            will-change:transform;z-index:0;
+        }
+        .banner::before{
+            content:"";position:absolute;inset:0;z-index:1;
+            background:linear-gradient(180deg,rgba(20,30,28,.25) 0%,rgba(20,30,28,.15) 40%,rgba(20,30,28,.55) 100%);
+        }
+        .banner-text{position:relative;z-index:2;max-width:760px;}
+        .banner-text .eyebrow{
+            display:inline-block;padding:6px 16px;border:1px solid rgba(255,255,255,.5);
+            border-radius:99px;font-size:13px;letter-spacing:3px;margin-bottom:20px;
+            backdrop-filter:blur(4px);
+        }
+        .banner h1{font-size:64px;line-height:1.1;margin-bottom:18px;font-weight:800;text-shadow:0 4px 24px rgba(0,0,0,.3);}
+        .banner p{font-size:19px;line-height:1.8;opacity:.95;max-width:600px;}
         .banner-btn{
-            display:inline-block;margin-top:24px;background:#e67e22;color:#fff;
-            padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:500;
+            display:inline-block;margin-top:28px;background:#e67e22;color:#fff;
+            padding:14px 32px;border-radius:99px;text-decoration:none;font-weight:500;
+            letter-spacing:1px;box-shadow:0 6px 20px rgba(230,126,34,.4);
+            transition:transform .25s;
+        }
+        .banner-btn:hover{transform:translateY(-2px);}
+        .scroll-hint{
+            position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+            z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;
+            color:rgba(255,255,255,.85);font-size:12px;letter-spacing:3px;
+        }
+        .mouse{
+            width:24px;height:40px;border:2px solid rgba(255,255,255,.8);border-radius:14px;
+            position:relative;
+        }
+        .mouse::after{
+            content:"";position:absolute;left:50%;top:7px;width:3px;height:8px;
+            background:#fff;border-radius:2px;transform:translateX(-50%);
+            animation:wheel 1.6s infinite;
+        }
+        @keyframes wheel{
+            0%{opacity:1;top:7px;}
+            100%{opacity:0;top:22px;}
         }
         section{padding:64px 40px;background:#fff;}
         section.bg{background:var(--light-bg);}
@@ -100,8 +134,9 @@
             .logo{font-size:18px;}
             nav{display:flex;flex-wrap:wrap;gap:8px;}
             nav a{margin-left:10px;font-size:14px;}
-            .banner{padding:0 22px;height:420px;}
-            .banner h1{font-size:34px;}
+            .banner{padding:0 22px;min-height:560px;}
+            .banner h1{font-size:40px;}
+            .banner p{font-size:16px;}
             section{padding:42px 20px;}
             table{font-size:13px;}
             th,td{padding:8px 6px;}
@@ -174,13 +209,19 @@
 <a class="float-book" href="#contact">📞立即预约</a>
 
 <div class="banner" id="home">
+    <div class="banner-bg" id="bannerBg"></div>
     <div class="banner-text">
+        <span class="eyebrow">PINEAPPLE BAY CAMP · 钦州</span>
         <h1>湾有趣 · 营地见</h1>
         <p>
             钦州优质户外团建·亲子研学·不过夜营地之选<br>
             临江自然场地｜柴火窑鸡｜烧烤K歌｜派对轰趴一站式综合户外营地
         </p>
-        <a class="banner-btn" href="#project">查看项目收费</a>
+        <a class="banner-btn" href="#project">查看项目收费 ↓</a>
+    </div>
+    <div class="scroll-hint">
+        <div class="mouse"></div>
+        <span>SCROLL</span>
     </div>
 </div>
 
@@ -587,6 +628,38 @@
             }
         });
     });
+})();
+</script>
+<script>
+// 首屏视差滚动：背景缓慢上移，文字渐隐
+(function(){
+    var bg = document.getElementById('bannerBg');
+    var text = document.querySelector('.banner-text');
+    var hint = document.querySelector('.scroll-hint');
+    var banner = document.getElementById('home');
+    var ticking = false;
+    function onScroll(){
+        var y = window.scrollY;
+        var h = banner.offsetHeight;
+        if(y < h){
+            // 背景以 0.4 倍速度上移，产生纵深视差
+            bg.style.transform = 'translateY(' + (y * 0.4) + 'px) scale(1.1)';
+            // 文字渐隐上移
+            var op = Math.max(0, 1 - y / (h * 0.7));
+            text.style.opacity = op;
+            text.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+            // 滚动提示随滚动消失
+            if(hint){ hint.style.opacity = Math.max(0, 1 - y / 120); }
+        }
+        ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+        if(!ticking){
+            requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, {passive:true});
+    onScroll();
 })();
 </script>
 </body>
