@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菠萝湾营地｜PINEAPPLE BAY CAMP 湾有趣·营地见</title>
+    <meta name="keywords" content="钦州菠萝湾营地,钦州团建,钦州窑鸡,钦州户外露营,钦州垂钓,钦州亲子研学,钦州轰趴派对,平陆运河营地">
+    <meta name="description" content="菠萝湾营地｜钦州临江一站式户外营地，柴火窑鸡、烧烤、KTV、垂钓、团建研学、生日派对，地址：钦南区尖山街道菠萝桥7号，预约13197779906。">
+    <meta property="og:title" content="菠萝湾营地｜湾有趣·营地见">
+    <meta property="og:description" content="钦州户外团建、亲子研学、窑鸡烧烤、垂钓轰趴综合营地">
+    <meta property="og:locale" content="zh_CN">
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
+        :root{
+            --main-green:#2c413b;
+            --light-green:#486b61;
+            --light-bg:#f7f9f8;
+            --text:#333;
+            --border:#dde2e0;
+            --price:#e54b2d;
+        }
+        html{scroll-behavior:smooth;}
+        body{color:var(--text);background:#fff;line-height:1.6;}
+        header{
+            background:var(--main-green);color:#fff;padding:18px 40px;
+            display:flex;justify-content:space-between;align-items:center;
+            flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:99;
+        }
+        .logo{font-size:24px;font-weight:bold;}
+        nav a{color:#fff;text-decoration:none;margin-left:22px;transition:.2s;}
+        nav a:hover{opacity:.75;}
+        .float-book{
+            position:fixed;bottom:30px;right:24px;background:#e67e22;color:#fff;
+            padding:14px 22px;border-radius:99px;text-decoration:none;font-weight:bold;
+            box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:99;
+        }
+        .banner{
+            height:540px;background:url("营地封面图.jpg") center/cover;
+            display:flex;align-items:center;padding:0 40px;color:#fff;position:relative;
+        }
+        .banner::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.4);}
+        .banner-text{position:relative;z-index:2;max-width:720px;}
+        .banner h1{font-size:48px;margin-bottom:14px;}
+        .banner p{font-size:19px;line-height:1.75;opacity:.95;}
+        .banner-btn{
+            display:inline-block;margin-top:24px;background:#e67e22;color:#fff;
+            padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:500;
+        }
+        section{padding:64px 40px;background:#fff;}
+        section.bg{background:var(--light-bg);}
+        .title{text-align:center;font-size:32px;color:var(--main-green);margin-bottom:12px;}
+        .subtitle{text-align:center;color:#606966;margin-bottom:42px;font-size:16px;}
+
+        .adv-wrap{
+            max-width:1140px;margin:0 auto;display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;
+        }
+        .adv-card{background:#fff;padding:28px 24px;border-radius:12px;box-shadow:0 2px 12px #0000000f;}
+        .adv-card h4{color:var(--main-green);margin-bottom:10px;font-size:19px;}
+
+        .item-card-box{max-width:1100px;margin:0 auto;display:grid;gap:32px;}
+        .item-card{
+            background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,.08);
+            overflow:hidden;
+        }
+        .item-head{background:var(--main-green);color:#fff;padding:16px 24px;font-size:20px;font-weight:600;}
+        .item-body{padding:24px;}
+        .item-intro{margin-bottom:10px;color:#555;}
+        table{width:100%;border-collapse:collapse;margin-top:12px;}
+        th,td{border:1px solid var(--border);padding:11px 14px;text-align:left;font-size:15px;vertical-align:top;}
+        th{background:var(--light-green);color:#fff;}
+        td.price{color:var(--price);font-size:18px;font-weight:bold;white-space:nowrap;}
+        .tip-text{font-size:14px;color:#555;margin-top:12px;line-height:1.7;}
+        .notice{
+            margin-top:18px;padding:14px 16px;background:#fff6ed;
+            border-left:4px solid #e67e22;border-radius:6px;color:#7a4b24;
+        }
+        .price-section-title{
+            color:var(--main-green);font-size:20px;font-weight:bold;margin-top:20px;margin-bottom:6px;
+        }
+
+        .team-wrap{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:44px;}
+        .team-card{text-align:center;}
+        .team-card img{width:230px;height:230px;object-fit:cover;border-radius:50%;margin-bottom:16px;}
+        .team-card h3{font-size:22px;color:var(--main-green);}
+        .team-card p{margin-top:10px;color:#555;line-height:1.65;}
+
+        .gallery-wrap{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;}
+        .gallery-wrap img{width:100%;height:230px;object-fit:cover;border-radius:10px;}
+
+        .coop-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+        .coop-card{background:#fff;padding:26px;border-radius:12px;box-shadow:0 2px 12px #0000000f;}
+        .coop-card h4{color:var(--main-green);margin-bottom:12px;font-size:18px;}
+
+        footer{background:var(--main-green);color:#fff;text-align:center;padding:36px;line-height:1.9;}
+
+        @media(max-width:768px){
+            header{padding:14px 20px;}
+            .logo{font-size:18px;}
+            nav{display:flex;flex-wrap:wrap;gap:8px;}
+            nav a{margin-left:10px;font-size:14px;}
+            .banner{padding:0 22px;height:420px;}
+            .banner h1{font-size:34px;}
+            section{padding:42px 20px;}
+            table{font-size:13px;}
+            th,td{padding:8px 6px;}
+            td.price{font-size:16px;}
+            .item-body{padding:16px;}
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="logo">菠萝湾营地 | PINEAPPLE BAY CAMP</div>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#about">关于我们</a>
+        <a href="#project">项目价格</a>
+        <a href="#team">核心团队</a>
+        <a href="#facility">营地实拍</a>
+        <a href="#cooperate">商务合作</a>
+        <a href="#honor">荣誉口碑</a>
+        <a href="#contact">联系我们</a>
+    </nav>
+</header>
+
+<a class="float-book" href="#contact">📞立即预约</a>
+
+<div class="banner" id="home">
+    <div class="banner-text">
+        <h1>湾有趣 · 营地见</h1>
+        <p>
+            钦州优质户外团建·亲子研学·不过夜营地之选<br>
+            临江自然场地｜柴火窑鸡｜烧烤K歌｜派对轰趴一站式综合户外营地
+        </p>
+        <a class="banner-btn" href="#project">查看项目收费</a>
+    </div>
+</div>
+
+<section id="about" class="bg">
+    <h2 class="title">关于我们</h2>
+    <div style="max-width:1080px;margin:0 auto;line-height:1.8;font-size:16px;color:#444;margin-bottom:44px;">
+        <p>菠萝湾营地坐落于钦州平山岛对面，毗邻平陆运河，自然风光优越。集户外野炊、团建拓展、亲子研学、休闲露营、派对轰趴于一体的一站式综合户外营地。</p>
+        <p style="margin-top:12px;">营地主打<span style="color:#2c413b;font-weight:bold;">「自然体验、沉浸式烟火户外、轻社交治愈场景」</span>，告别传统枯燥团建，主打好玩、轻松、出片、高体验感。</p>
+    </div>
+
+    <h3 class="subtitle">四大核心优势</h3>
+    <div class="adv-wrap">
+        <div class="adv-card">
+            <h4>自然生态场地</h4>
+            <p>临江开阔场地，空气清新，超大活动空间</p>
+        </div>
+        <div class="adv-card">
+            <h4>项目丰富全面</h4>
+            <p>窑鸡窑番薯、烧烤、露营、K歌、天幕休闲</p>
+        </div>
+        <div class="adv-card">
+            <h4>全客群适配</h4>
+            <p>企业团建、亲子研学、闺蜜聚会、生日派对均可</p>
+        </div>
+        <div class="adv-card">
+            <h4>专业落地服务</h4>
+            <p>全程对接、场地布置、流程策划、后勤保障</p>
+        </div>
+    </div>
+
+    <div style="max-width:1080px;margin:30px auto 0 auto;line-height:1.8;font-size:16px;color:#444;">
+        <p><strong>服务团队</strong></p>
+        <p>营地配备专业现场服务团队，涵盖窑烤实操、食材加工、活动执行、后勤保障岗位，为企业团建、亲子研学、散客聚会提供全套落地接待保障。</p>
+    </div>
+</section>
+
+<section id="project">
+    <h2 class="title">营地经营项目收费标准</h2>
+    <p class="subtitle">明码标价 · 放心消费 · 具体收费以营地现场公示为准</p>
+
+    <div class="item-card-box">
+
+        <!-- 1 用餐 -->
+        <div class="item-card">
+            <div class="item-head">🍽️ 01｜用餐</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>收费标准</th></tr>
+                    <tr>
+                        <td>自带自加工</td>
+                        <td class="price">100元/台</td>
+                    </tr>
+                </table>
+                <div class="tip-text">
+                    来料加工详见加工价目表，提供就餐场所和场地。
+                </div>
+            </div>
+        </div>
+
+        <!-- 2 烧烤 -->
+        <div class="item-card">
+            <div class="item-head">🔥 02｜烧烤</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>套餐</th><th>套餐内容</th><th>价格</th></tr>
+                    <tr>
+                        <td>套餐一</td>
+                        <td>烧烤食材自备，提供一个炉（含6斤炭）、1张桌子、10张椅子</td>
+                        <td class="price">100元</td>
+                    </tr>
+                    <tr>
+                        <td>套餐二</td>
+                        <td>提供一个炉（含6斤炭）、2张桌子、15张椅子</td>
+                        <td class="price">150元</td>
+                    </tr>
+                    <tr>
+                        <td>加炭</td>
+                        <td>按3斤炭/炉补充</td>
+                        <td class="price">10元/次</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3 窑番薯、鸡 -->
+        <div class="item-card">
+            <div class="item-head">🍠 03｜窑番薯、鸡</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>收费标准</th></tr>
+                    <tr><td>场地及泥块</td><td class="price">30元/窑</td></tr>
+                    <tr><td>柴火</td><td class="price">20元/窑</td></tr>
+                    <tr><td>搭窑</td><td class="price">20元/窑</td></tr>
+                </table>
+
+                <table>
+                    <tr><th>套餐</th><th>套餐内容</th><th>价格</th></tr>
+                    <tr>
+                        <td>套餐一</td>
+                        <td>提供搭、烧、打窑服务，1桌6椅，20斤木柴</td>
+                        <td class="price">88元</td>
+                    </tr>
+                    <tr>
+                        <td>套餐二</td>
+                        <td>提供搭、烧、打窑服务，1桌8椅，20斤木柴、鸡1只、番薯5斤</td>
+                        <td class="price">168元</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4 煮粥 -->
+        <div class="item-card">
+            <div class="item-head">🥣 04｜煮粥</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>说明</th><th>价格</th></tr>
+                    <tr>
+                        <td>白粥</td>
+                        <td>自带米，每锅最多6斤米</td>
+                        <td class="price">6元/斤</td>
+                    </tr>
+                    <tr>
+                        <td>肉粥</td>
+                        <td>自带米及肉料，每锅最多6斤米</td>
+                        <td class="price">10元/斤</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 5 饺子 -->
+        <div class="item-card">
+            <div class="item-head">🥟 05｜饺子</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>加工方式</th><th>价格</th></tr>
+                    <tr>
+                        <td>蒸、煮</td>
+                        <td class="price">10元/斤</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 6 KTV -->
+        <div class="item-card">
+            <div class="item-head">🎤 06｜KTV</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>套餐</th><th>场地</th><th>价格</th></tr>
+                    <tr><td>套餐一</td><td>大厅</td><td class="price">200元</td></tr>
+                    <tr><td>套餐一</td><td>小房</td><td class="price">250元</td></tr>
+                    <tr><td>套餐二</td><td>大厅</td><td class="price">268元</td></tr>
+                    <tr><td>套餐二</td><td>小房</td><td class="price">298元</td></tr>
+                </table>
+                <div class="tip-text">
+                    <strong>套餐一：</strong>提供茶水1壶，全场免费提供开水。<br>
+                    <strong>套餐二：</strong>送啤酒2打、花生一碟、瓜子一碟、茶水一壶，全场免费提供开水。
+                </div>
+            </div>
+        </div>
+
+        <!-- 7 DJ打碟 -->
+        <div class="item-card">
+            <div class="item-head">🎧 07｜DJ打碟</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>服务内容</th><th>价格</th></tr>
+                    <tr>
+                        <td>DJ打碟</td>
+                        <td>场地费；提供茶水1壶，全场免费提供开水</td>
+                        <td class="price">350元</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 8 钓鱼、虾 -->
+        <div class="item-card">
+            <div class="item-head">🎣 08｜钓鱼、虾</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>人群</th><th>收费标准</th></tr>
+                    <tr><td>成人</td><td class="price">15元/杆</td></tr>
+                    <tr><td>小孩</td><td class="price">10元/杆</td></tr>
+                </table>
+                <div class="tip-text">
+                    鱼获带走按斤重量计。
+                </div>
+            </div>
+        </div>
+
+        <!-- 9 麻将 -->
+        <div class="item-card">
+            <div class="item-head">🀄 09｜麻将</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>方式</th><th>收费标准</th></tr>
+                    <tr><td>自动</td><td class="price">60元</td></tr>
+                    <tr><td>四小时</td><td class="price">60元</td></tr>
+                    <tr><td>超出</td><td class="price">15元/小时</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 10 天幕 -->
+        <div class="item-card">
+            <div class="item-head">⛺ 10｜天幕</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>规格</th><th>价格</th></tr>
+                    <tr><td>大</td><td class="price">50元/个</td></tr>
+                    <tr><td>小</td><td class="price">30元/个</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 加工价目表 -->
+        <div class="item-card">
+            <div class="item-head">🍳 食材来料加工｜价格公示牌</div>
+            <div class="item-body">
+                <p class="item-intro">新鲜食材 · 用心加工 · 美味加倍！</p>
+
+                <table>
+                    <tr><th>加工方式</th><th>品种</th><th>单位</th><th>价格</th></tr>
+                    <tr><td>白切</td><td>鸡、鸭、鹅等</td><td>斤</td><td class="price">10元/斤</td></tr>
+                    <tr><td>白灼、盐水</td><td>猪肚、虾、鱿鱼、螺等</td><td>斤</td><td class="price">10元/斤</td></tr>
+                    <tr><td>清蒸、蒜蓉蒸</td><td>猪舌、鱼、扇贝</td><td>斤</td><td class="price">13元/斤</td></tr>
+                    <tr><td>蒜蓉蒸</td><td>带子、带壳大虾</td><td>个</td><td class="price">2元/个</td></tr>
+                    <tr><td>蒜蓉开边蒸</td><td>大虾、青龙</td><td>斤</td><td class="price">20元/斤</td></tr>
+                    <tr><td>脆炸</td><td>排骨、生蚝、沙虫</td><td>斤</td><td class="price">20元/斤</td></tr>
+                    <tr><td>香煎、焖、姜葱炒</td><td>花蟹、鱼、螺</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>麻辣、盐焗</td><td>虾、蟹、螺</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>椒盐、红烧</td><td>虾、蟹、螺</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>镬气小炒类</td><td>生炒时蔬等</td><td>斤</td><td class="price">10元/斤</td></tr>
+                    <tr><td>煲仔/啫啫砂锅类</td><td>鸡、鱼头等</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>炖品老火汤类</td><td>自带食材</td><td>斤</td><td class="price">20元/斤</td></tr>
+                </table>
+
+                <div class="price-section-title">🥣 煮粥、煮汤｜按盘（盆）计收费</div>
+                <table>
+                    <tr><th>人数</th><th>价格</th></tr>
+                    <tr><td>4–6人</td><td class="price">28元/盘</td></tr>
+                    <tr><td>6–10人</td><td class="price">38元/盘</td></tr>
+                    <tr><td>10–20人</td><td class="price">48元/盘</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="notice" style="max-width:1100px;margin:32px auto 0;">
+        <strong>温馨提示：</strong>营地内谢绝自带酒水，团队活动需预约沟通好除外；自带啤酒收取30元/件服务费。
+    </div>
+</section>
+
+<section id="team" class="bg">
+    <h2 class="title">核心团队</h2>
+    <div class="team-wrap">
+        <div class="team-card">
+            <img src="林伟杰照片.jpg" alt="林伟杰">
+            <h3>林伟杰｜创始人</h3>
+            <p>菠萝湾营地创始人，负责营地场地规划、基建工程与整体运营管理。</p>
+        </div>
+        <div class="team-card">
+            <img src="王春芳照片.jpg" alt="王春芳">
+            <h3>王春芳｜战略股东（场地资源支持）</h3>
+            <p>营地战略股东，提供核心场地资源，参与项目战略方向规划，为营地建设发展提供重要支撑。</p>
+        </div>
+        <div class="team-card">
+            <img src="你的照片.jpg" alt="林可璐">
+            <h3>林可璐｜CMO首席营销官</h3>
+            <p>负责品牌IP打造、景观场景策划、新媒体内容运营、团建市场拓展与品牌视觉体系搭建。</p>
+        </div>
+    </div>
+</section>
+
+<section id="facility">
+    <h2 class="title">营地实拍 · 设施环境</h2>
+    <p class="subtitle">咖啡屋｜大草坪｜KTV包厢｜打卡南墙｜庭院水景</p>
+    <div class="gallery-wrap">
+        <img src="营地咖啡屋.jpg" alt="营地咖啡屋">
+        <img src="开阔草坪.jpg" alt="大草坪活动区">
+        <img src="宴会桌椅.jpg" alt="团建宴会场地">
+        <img src="KTV包厢.jpg" alt="KTV派对包厢">
+        <img src="南墙涂鸦.jpg" alt="打卡南墙涂鸦墙">
+        <img src="营地水景庭院.jpg" alt="营地庭院风景">
+    </div>
+</section>
+
+<section id="cooperate" class="bg">
+    <h2 class="title">商务合作模式</h2>
+    <p class="subtitle">单次落地、专场包场、长期合作、商业置换均可洽谈</p>
+    <div class="coop-wrap">
+        <div class="coop-card">
+            <h4>企业公司｜团建定制</h4>
+            <p>公司团建、部门活动、年会轻户外；提供专属方案、包场、布置、全流程对接。</p>
+        </div>
+        <div class="coop-card">
+            <h4>教育机构｜亲子研学</h4>
+            <p>幼儿园、培训机构、旅游团；主打自然实践、亲子动手体验主题活动。</p>
+        </div>
+        <div class="coop-card">
+            <h4>品牌商家｜联营合作</h4>
+            <p>车行、婚纱、医美、自媒体；场地联名，双向流量曝光互换。</p>
+        </div>
+        <div class="coop-card">
+            <h4>活动策划公司</h4>
+            <p>婚庆、传媒团队；长协底价、专场独占、档期优先锁定。</p>
+        </div>
+    </div>
+
+    <div style="max-width:980px;margin:44px auto 0;background:#fff;padding:26px;border-radius:12px;box-shadow:0 2px 10px #0000000f;">
+        <h4 style="color:var(--main-green);margin-bottom:14px;font-size:19px;">甲方合作专属权益</h4>
+        <ul style="line-height:1.8;color:#444;padding-left:20px;">
+            <li>长期合作甲方专属渠道优惠价</li>
+            <li>活动全程1v1专属对接落地</li>
+            <li>营地官方渠道免费宣传推广</li>
+            <li>朋友圈社群免费帮忙转发活动</li>
+            <li>周末节假日黄金档期优先锁定</li>
+            <li>免费基础布置，水电配套使用</li>
+            <li>可开具场地合作相关证明资料</li>
+        </ul>
+    </div>
+</section>
+
+<section id="honor">
+    <h2 class="title">荣誉与口碑</h2>
+    <div style="text-align:center;margin-bottom:32px;">
+        <p style="font-size:18px;color:#444;">2026年度广西甄选《最具人气露营地》大众口碑评选活动</p>
+        <p style="font-size:24px;color:#b47800;font-weight:bold;margin-top:8px;">亚军</p>
+    </div>
+    <div class="gallery-wrap" style="max-width:720px;margin:0 auto;">
+        <img src="奖杯证书1.jpg" alt="奖杯证书">
+        <img src="奖杯证书2.jpg" alt="奖杯证书">
+    </div>
+</section>
+
+<section id="contact" class="bg">
+    <h2 class="title">联系我们 · 预约咨询</h2>
+    <div style="max-width:720px;margin:0 auto;text-align:center;line-height:2.3;font-size:17px;">
+        <p><strong>营地名称：</strong>菠萝湾营地 PINEAPPLE BAY CAMP</p>
+        <p><strong>营地地址：</strong>广西钦州·钦南区尖山街道菠萝桥7号</p>
+        <p><strong>营业时间：</strong>09:00‑24:00，KTV包厢可预约至凌晨02:00</p>
+        <p><strong>合作预约热线：</strong>13197779906 &nbsp; 18977702593</p>
+        <p style="margin-top:22px;color:var(--main-green);font-weight:bold;font-size:18px;">湾有趣 · 营地见，期待与各大品牌、机构、企业携手共赢</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 菠萝湾营地 版权所有<br>
+    广西钦州菠萝湾营地
+</footer>
+</body>
+</html>
