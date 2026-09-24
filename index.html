@@ -189,50 +189,86 @@
             .sticker-card.right{transform:rotate(5deg) translateX(35%) scale(.78);}
         }
 
-        /* ===== 营地相册收藏夹 ===== */
-        .album{
-            max-width:1140px;margin:0 auto;
-            columns:4;column-gap:16px;
+        /* ===== 营地科技画廊 ===== */
+        #facility{
+            background:linear-gradient(180deg,#0f1f1c 0%,#162925 100%);
+            padding:80px 40px;
         }
-        .album-item{
-            position:relative;overflow:hidden;border-radius:12px;cursor:pointer;
-            box-shadow:0 4px 14px rgba(0,0,0,.1);
-            margin-bottom:16px;break-inside:avoid;display:block;
+        #facility .title{color:#fff;}
+        #facility .subtitle{color:rgba(255,255,255,.55);}
+        .gallery{
+            max-width:1100px;margin:0 auto;position:relative;
         }
-        .album-item img{
-            width:100%;display:block;transition:transform .6s ease;
+        .gallery-stage{
+            position:relative;width:100%;aspect-ratio:16/9;
+            border-radius:20px;overflow:hidden;cursor:zoom-in;
+            box-shadow:0 0 0 1px rgba(120,220,180,.15),0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(80,200,160,.08);
         }
-        .album-item:hover img{transform:scale(1.05);}
-        .album-item .tag{
-            position:absolute;left:12px;bottom:12px;z-index:2;
-            background:rgba(0,0,0,.55);color:#fff;padding:5px 12px;border-radius:99px;
-            font-size:12px;letter-spacing:1px;backdrop-filter:blur(4px);
+        .gallery-stage img{
+            width:100%;height:100%;object-fit:cover;
+            opacity:0;transition:opacity .5s ease;
         }
-        .album-tip{text-align:center;color:#999;font-size:13px;margin-top:18px;}
+        .gallery-stage img.show{opacity:1;}
+        .gallery-stage .overlay{
+            position:absolute;left:0;right:0;bottom:0;
+            background:linear-gradient(transparent,rgba(0,0,0,.75));
+            padding:40px 28px 22px;color:#fff;
+        }
+        .gallery-stage .overlay h3{font-size:22px;font-weight:600;letter-spacing:1px;margin-bottom:4px;}
+        .gallery-stage .overlay p{font-size:13px;opacity:.7;}
+        .gallery-nav{
+            position:absolute;top:50%;transform:translateY(-50%);
+            width:46px;height:46px;border-radius:50%;
+            background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+            color:#fff;font-size:22px;cursor:pointer;backdrop-filter:blur(8px);
+            transition:.25s;display:flex;align-items:center;justify-content:center;
+            z-index:5;
+        }
+        .gallery-nav:hover{background:rgba(120,220,180,.25);border-color:rgba(120,220,180,.5);box-shadow:0 0 20px rgba(120,220,180,.3);}
+        .gallery-nav.prev{left:-23px;}
+        .gallery-nav.next{right:-23px;}
+        .thumbs{
+            margin-top:22px;display:flex;gap:10px;overflow-x:auto;
+            padding:6px 2px;scrollbar-width:thin;scrollbar-color:rgba(120,220,180,.4) transparent;
+        }
+        .thumbs::-webkit-scrollbar{height:6px;}
+        .thumbs::-webkit-scrollbar-thumb{background:rgba(120,220,180,.3);border-radius:3px;}
+        .thumb{
+            flex:0 0 96px;height:64px;border-radius:8px;overflow:hidden;cursor:pointer;
+            opacity:.45;transition:.25s;border:2px solid transparent;position:relative;
+        }
+        .thumb img{width:100%;height:100%;object-fit:cover;}
+        .thumb:hover{opacity:.8;}
+        .thumb.active{
+            opacity:1;border-color:#78dcb4;
+            box-shadow:0 0 14px rgba(120,220,180,.5);
+        }
+        .gallery-hint{text-align:center;color:rgba(255,255,255,.4);font-size:12px;margin-top:16px;letter-spacing:1px;}
         /* lightbox */
         #lightbox{
-            display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;
+            display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:2000;
             align-items:center;justify-content:center;flex-direction:column;
         }
-        #lightboxImg{max-width:92%;max-height:84vh;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.5);}
+        #lightboxImg{max-width:92%;max-height:84vh;border-radius:10px;box-shadow:0 10px 50px rgba(0,0,0,.6);}
         #lightboxCap{color:#fff;margin-top:16px;font-size:15px;letter-spacing:1px;opacity:.85;}
         #lightboxClose{
             position:absolute;top:24px;right:30px;background:none;border:none;color:#fff;
             font-size:36px;cursor:pointer;line-height:1;
         }
         .lb-arrow{
-            position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);
+            position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
             border:none;color:#fff;font-size:28px;width:48px;height:48px;border-radius:50%;
             cursor:pointer;transition:.2s;
         }
-        .lb-arrow:hover{background:rgba(255,255,255,.3);}
+        .lb-arrow:hover{background:rgba(120,220,180,.3);}
         #lbPrev{left:20px;}
         #lbNext{right:20px;}
-        @media(max-width:900px){
-            .album{columns:3;}
-        }
-        @media(max-width:600px){
-            .album{columns:2;column-gap:10px;}
+        @media(max-width:700px){
+            #facility{padding:50px 18px;}
+            .gallery-stage{aspect-ratio:4/3;}
+            .gallery-nav.prev{left:8px;}
+            .gallery-nav.next{right:8px;}
+            .thumb{flex:0 0 72px;height:48px;}
         }
     </style>
 </head>
@@ -549,25 +585,19 @@
 <section id="facility">
     <h2 class="title">营地实拍 · 设施环境</h2>
     <p class="subtitle">临江景色｜大草坪｜咖啡屋｜KTV·DJ｜花架庭院 · 从白天到夜晚</p>
-    <div class="album">
-        <div class="album-item" data-idx="0"><img src="photo-lawn-day.jpg" alt="大草坪·白天"><span class="tag">大草坪 · 白天</span></div>
-        <div class="album-item" data-idx="1"><img src="p01-riverside.jpg" alt="临江暮色"><span class="tag">临江暮色</span></div>
-        <div class="album-item" data-idx="2"><img src="p07-pavilion.jpg" alt="临水红亭"><span class="tag">临水红亭</span></div>
-        <div class="album-item" data-idx="3"><img src="photo-banyan.jpg" alt="大榕树·天使水境"><span class="tag">大榕树 · 天使水境</span></div>
-        <div class="album-item" data-idx="4"><img src="p05-cafe-night.jpg" alt="咖啡屋·夜"><span class="tag">咖啡屋 · 夜</span></div>
-        <div class="album-item" data-idx="5"><img src="p02-lawn.jpg" alt="天幕草坪"><span class="tag">天幕草坪</span></div>
-        <div class="album-item" data-idx="6"><img src="p08-chimney.jpg" alt="烟囱水镜"><span class="tag">烟囱水镜</span></div>
-        <div class="album-item" data-idx="7"><img src="p03-lawn-chairs.jpg" alt="草坪桌椅"><span class="tag">草坪桌椅</span></div>
-        <div class="album-item" data-idx="8"><img src="photo-lawn-night.jpg" alt="大草坪·夜晚"><span class="tag">大草坪 · 夜晚</span></div>
-        <div class="album-item" data-idx="9"><img src="p06-cafe-night2.jpg" alt="咖啡屋·夜"><span class="tag">咖啡屋 · 夜景</span></div>
-        <div class="album-item" data-idx="10"><img src="p04-flower-gate.jpg" alt="花门小院"><span class="tag">花门小院</span></div>
-        <div class="album-item" data-idx="11"><img src="p09-yard.jpg" alt="庭院花影"><span class="tag">庭院花影</span></div>
-        <div class="album-item" data-idx="12"><img src="p10-ktv.jpg" alt="KTV包厢"><span class="tag">KTV包厢</span></div>
-        <div class="album-item" data-idx="13"><img src="p11-dj.jpg" alt="DJ音乐区"><span class="tag">DJ音乐区</span></div>
-        <div class="album-item" data-idx="14"><img src="p12-cinema.jpg" alt="露天影院"><span class="tag">露天影院</span></div>
-        <div class="album-item" data-idx="15"><img src="p13-flowers.jpg" alt="花架三角梅"><span class="tag">花架三角梅</span></div>
+    <div class="gallery">
+        <div class="gallery-stage" id="stage">
+            <img id="mainImg" src="photo-lawn-day.jpg" alt="">
+            <div class="overlay">
+                <h3 id="mainTitle">大草坪 · 白天</h3>
+                <p id="mainDesc">天幕下的慵懒午后</p>
+            </div>
+        </div>
+        <button class="gallery-nav prev" id="gPrev">‹</button>
+        <button class="gallery-nav next" id="gNext">›</button>
+        <div class="thumbs" id="thumbs"></div>
+        <p class="gallery-hint">点击缩略图切换 · 点击大图放大浏览</p>
     </div>
-    <p class="album-tip">点击照片可放大浏览，左右切换</p>
 </section>
 
 <div id="lightbox">
@@ -811,56 +841,84 @@
 })();
 </script>
 <script>
-// 营地相册 lightbox
+// 科技画廊
 (function(){
-    var items = document.querySelectorAll('.album-item');
+    var data = [
+        {src:'photo-lawn-day.jpg', title:'大草坪 · 白天', desc:'天幕下的慵懒午后'},
+        {src:'p01-riverside.jpg', title:'临江暮色', desc:'河边草坪的黄昏'},
+        {src:'p07-pavilion.jpg', title:'临水红亭', desc:'栈道尽头的亭子'},
+        {src:'photo-banyan.jpg', title:'大榕树 · 天使水境', desc:'树影池塘边'},
+        {src:'p05-cafe-night.jpg', title:'咖啡屋 · 夜', desc:'发光的CAFE小店'},
+        {src:'p02-lawn.jpg', title:'天幕草坪', desc:'大草坪上的白色天幕'},
+        {src:'p08-chimney.jpg', title:'烟囱水镜', desc:'老烟囱与水景'},
+        {src:'p03-lawn-chairs.jpg', title:'草坪桌椅', desc:'临江茶座'},
+        {src:'photo-lawn-night.jpg', title:'大草坪 · 夜晚', desc:'串灯亮起的营地夜晚'},
+        {src:'p06-cafe-night2.jpg', title:'咖啡屋 · 夜景', desc:'灯光下的小店'},
+        {src:'p04-flower-gate.jpg', title:'花门小院', desc:'爬藤植物门廊'},
+        {src:'p09-yard.jpg', title:'庭院花影', desc:'小院门口'},
+        {src:'p10-ktv.jpg', title:'KTV包厢', desc:'派对K歌空间'},
+        {src:'p11-dj.jpg', title:'DJ音乐区', desc:'镜面墙打碟区'},
+        {src:'p12-cinema.jpg', title:'露天影院', desc:'大幕布电影'},
+        {src:'p13-flowers.jpg', title:'花架三角梅', desc:'花架下的盆栽'}
+    ];
+    var cur = 0;
+    var mainImg = document.getElementById('mainImg');
+    var mainTitle = document.getElementById('mainTitle');
+    var mainDesc = document.getElementById('mainDesc');
+    var stage = document.getElementById('stage');
+    var thumbsBox = document.getElementById('thumbs');
+
+    // 生成缩略图
+    data.forEach(function(item, i){
+        var t = document.createElement('div');
+        t.className = 'thumb' + (i===0?' active':'');
+        t.innerHTML = '<img src="'+item.src+'" alt="">';
+        t.addEventListener('click', function(){ go(i); });
+        thumbsBox.appendChild(t);
+    });
+    var thumbs = thumbsBox.querySelectorAll('.thumb');
+
+    function go(i){
+        cur = (i + data.length) % data.length;
+        mainImg.classList.remove('show');
+        setTimeout(function(){
+            mainImg.src = data[cur].src;
+            mainTitle.textContent = data[cur].title;
+            mainDesc.textContent = data[cur].desc;
+            mainImg.onload = function(){ mainImg.classList.add('show'); };
+            if(mainImg.complete) mainImg.classList.add('show');
+        }, 200);
+        thumbs.forEach(function(t, idx){ t.classList.toggle('active', idx===cur); });
+        // 滚动缩略图到可见
+        var active = thumbs[cur];
+        if(active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    }
+
+    document.getElementById('gPrev').addEventListener('click', function(){ go(cur-1); });
+    document.getElementById('gNext').addEventListener('click', function(){ go(cur+1); });
+
+    // lightbox
     var lb = document.getElementById('lightbox');
     var lbImg = document.getElementById('lightboxImg');
     var lbCap = document.getElementById('lightboxCap');
-    var close = document.getElementById('lightboxClose');
-    var prev = document.getElementById('lbPrev');
-    var next = document.getElementById('lbNext');
-    var cur = 0;
-    var data = [
-        {src:'photo-lawn-day.jpg', cap:'大草坪 · 白天 — 天幕下的慵懒午后'},
-        {src:'p01-riverside.jpg', cap:'临江暮色 — 河边草坪的黄昏'},
-        {src:'p07-pavilion.jpg', cap:'临水红亭 — 栈道尽头的亭子'},
-        {src:'photo-banyan.jpg', cap:'大榕树 · 天使水境 — 树影池塘边'},
-        {src:'p05-cafe-night.jpg', cap:'咖啡屋 · 夜 — 发光的CAFE小店'},
-        {src:'p02-lawn.jpg', cap:'天幕草坪 — 大草坪上的白色天幕'},
-        {src:'p08-chimney.jpg', cap:'烟囱水镜 — 老烟囱与水景'},
-        {src:'p03-lawn-chairs.jpg', cap:'草坪桌椅 — 临江茶座'},
-        {src:'photo-lawn-night.jpg', cap:'大草坪 · 夜晚 — 串灯亮起的营地夜晚'},
-        {src:'p06-cafe-night2.jpg', cap:'咖啡屋 · 夜景 — 灯光下的小店'},
-        {src:'p04-flower-gate.jpg', cap:'花门小院 — 爬藤植物门廊'},
-        {src:'p09-yard.jpg', cap:'庭院花影 — 小院门口'},
-        {src:'p10-ktv.jpg', cap:'KTV包厢 — 派对K歌空间'},
-        {src:'p11-dj.jpg', cap:'DJ音乐区 — 镜面墙打碟区'},
-        {src:'p12-cinema.jpg', cap:'露天影院 — 大幕布电影'},
-        {src:'p13-flowers.jpg', cap:'花架三角梅 — 花架下的盆栽'}
-    ];
-    function show(i){
-        cur = (i + data.length) % data.length;
+    stage.addEventListener('click', function(){
         lbImg.src = data[cur].src;
-        lbCap.textContent = data[cur].cap;
+        lbCap.textContent = data[cur].title + ' — ' + data[cur].desc;
         lb.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-    }
-    items.forEach(function(item){
-        item.addEventListener('click', function(){
-            show(parseInt(item.getAttribute('data-idx'),10));
-        });
     });
-    close.addEventListener('click', function(){ lb.style.display='none'; document.body.style.overflow=''; });
-    prev.addEventListener('click', function(){ show(cur-1); });
-    next.addEventListener('click', function(){ show(cur+1); });
+    document.getElementById('lightboxClose').addEventListener('click', function(){ lb.style.display='none'; document.body.style.overflow=''; });
+    document.getElementById('lbPrev').addEventListener('click', function(){ go(cur-1); lbImg.src = data[cur].src; lbCap.textContent = data[cur].title+' — '+data[cur].desc; });
+    document.getElementById('lbNext').addEventListener('click', function(){ go(cur+1); lbImg.src = data[cur].src; lbCap.textContent = data[cur].title+' — '+data[cur].desc; });
     lb.addEventListener('click', function(e){ if(e.target === lb){ lb.style.display='none'; document.body.style.overflow=''; } });
     document.addEventListener('keydown', function(e){
-        if(lb.style.display !== 'flex') return;
         if(e.key === 'Escape'){ lb.style.display='none'; document.body.style.overflow=''; }
-        if(e.key === 'ArrowLeft') show(cur-1);
-        if(e.key === 'ArrowRight') show(cur+1);
+        if(e.key === 'ArrowLeft') go(cur-1);
+        if(e.key === 'ArrowRight') go(cur+1);
     });
+
+    // 初始化
+    mainImg.classList.add('show');
 })();
 </script>
 </body>
