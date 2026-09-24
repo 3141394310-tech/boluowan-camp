@@ -108,6 +108,51 @@
             td.price{font-size:16px;}
             .item-body{padding:16px;}
         }
+
+        /* ===== 荣誉贴纸相册 ===== */
+        .honor-stage{
+            max-width:680px;margin:0 auto;position:relative;
+            min-height:480px;display:flex;align-items:center;justify-content:center;
+        }
+        .sticker-card{
+            position:absolute;background:#fff;padding:14px 14px 18px;
+            border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.18);
+            transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease;
+            transform-origin:center center;cursor:pointer;max-width:88%;
+        }
+        .sticker-card img{
+            width:100%;display:block;border-radius:3px;
+        }
+        .sticker-card .cap{
+            text-align:center;margin-top:10px;font-size:15px;color:#555;
+            font-weight:600;letter-spacing:.5px;
+        }
+        .sticker-card.active{
+            transform:rotate(-2deg) scale(1);z-index:5;opacity:1;
+        }
+        .sticker-card.left{
+            transform:rotate(-8deg) translateX(-70%) scale(.82);opacity:.35;z-index:2;
+        }
+        .sticker-card.right{
+            transform:rotate(6deg) translateX(70%) scale(.82);opacity:.35;z-index:2;
+        }
+        .sticker-card:hover{opacity:1;}
+        .honor-tabs{
+            display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap;
+        }
+        .honor-tab{
+            padding:9px 22px;border-radius:99px;border:2px solid var(--main-green);
+            background:#fff;color:var(--main-green);font-weight:600;font-size:15px;
+            cursor:pointer;transition:.25s;
+        }
+        .honor-tab:hover{background:var(--main-green);color:#fff;}
+        .honor-tab.on{background:var(--main-green);color:#fff;}
+        .honor-hint{text-align:center;color:#999;font-size:13px;margin-top:14px;}
+        @media(max-width:600px){
+            .honor-stage{min-height:380px;}
+            .sticker-card.left{transform:rotate(-6deg) translateX(-35%) scale(.78);}
+            .sticker-card.right{transform:rotate(5deg) translateX(35%) scale(.78);}
+        }
     </style>
 </head>
 
@@ -465,14 +510,32 @@
 
 <section id="honor">
     <h2 class="title">荣誉与口碑</h2>
-    <div style="text-align:center;margin-bottom:32px;">
+    <div style="text-align:center;margin-bottom:10px;">
         <p style="font-size:18px;color:#444;">2026年度广西甄选《最具人气露营地》大众口碑评选活动</p>
         <p style="font-size:24px;color:#b47800;font-weight:bold;margin-top:8px;">亚军</p>
     </div>
-    <div class="gallery-wrap" style="max-width:720px;margin:0 auto;">
-        <img src="奖杯证书1.jpg" alt="奖杯证书">
-        <img src="奖杯证书2.jpg" alt="奖杯证书">
+
+    <div class="honor-stage" id="honorStage">
+        <div class="sticker-card active" data-idx="0">
+            <img src="honor-plaque.jpg" alt="荣誉牌匾">
+            <div class="cap">荣誉牌匾 · 最具人气露营地亚军</div>
+        </div>
+        <div class="sticker-card right" data-idx="1">
+            <img src="honor-cert.jpg" alt="荣誉证书">
+            <div class="cap">荣誉证书</div>
+        </div>
+        <div class="sticker-card left" data-idx="2">
+            <img src="honor-trophy.jpg" alt="冠军奖杯">
+            <div class="cap">亚军奖杯</div>
+        </div>
     </div>
+
+    <div class="honor-tabs">
+        <div class="honor-tab on" data-tab="0">牌匾</div>
+        <div class="honor-tab" data-tab="1">证书</div>
+        <div class="honor-tab" data-tab="2">奖杯</div>
+    </div>
+    <p class="honor-hint">点击卡片或下方标签，像翻菜单一样切换查看</p>
 </section>
 
 <section id="contact" class="bg">
@@ -490,5 +553,41 @@
     © 2026 菠萝湾营地 版权所有<br>
     广西钦州菠萝湾营地
 </footer>
+<script>
+(function(){
+    var cards = document.querySelectorAll('.sticker-card');
+    var tabs = document.querySelectorAll('.honor-tab');
+    var total = cards.length;
+    var cur = 0;
+
+    function render(idx){
+        cur = idx;
+        cards.forEach(function(card, i){
+            card.classList.remove('active','left','right');
+            var diff = (i - idx + total) % total;
+            if(diff === 0){ card.classList.add('active'); }
+            else if(diff === 1){ card.classList.add('right'); }
+            else { card.classList.add('left'); }
+        });
+        tabs.forEach(function(t, i){
+            t.classList.toggle('on', i === idx);
+        });
+    }
+    tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+            render(parseInt(tab.getAttribute('data-tab'),10));
+        });
+    });
+    cards.forEach(function(card){
+        card.addEventListener('click', function(){
+            if(card.classList.contains('active')){
+                render((cur + 1) % total);
+            } else {
+                render(parseInt(card.getAttribute('data-idx'),10));
+            }
+        });
+    });
+})();
+</script>
 </body>
 </html>
