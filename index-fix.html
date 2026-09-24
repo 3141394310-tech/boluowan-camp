@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菠萝湾营地｜PINEAPPLE BAY CAMP 湾有趣·营地见</title>
+    <meta name="keywords" content="钦州菠萝湾营地,钦州团建,钦州窑鸡,钦州户外露营,钦州垂钓,钦州亲子研学,钦州轰趴派对,平陆运河营地">
+    <meta name="description" content="菠萝湾营地｜钦州临江一站式户外营地，柴火窑鸡、烧烤、KTV、垂钓、团建研学、生日派对，地址：钦南区尖山街道菠萝桥7号，预约13197779906。">
+    <meta property="og:title" content="菠萝湾营地｜湾有趣·营地见">
+    <meta property="og:description" content="钦州户外团建、亲子研学、窑鸡烧烤、垂钓轰趴综合营地">
+    <meta property="og:locale" content="zh_CN">
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
+        :root{
+            --main-green:#2c413b;
+            --light-green:#486b61;
+            --light-bg:#f7f9f8;
+            --text:#333;
+            --border:#dde2e0;
+            --price:#e54b2d;
+        }
+        html{scroll-behavior:smooth;overflow-x:hidden;}
+        body{color:var(--text);background:#fff;line-height:1.6;overflow-x:hidden;max-width:100vw;}
+        header{
+            background:var(--main-green);color:#fff;padding:18px 40px;
+            display:flex;justify-content:space-between;align-items:center;
+            flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:99;
+        }
+        .logo{font-size:24px;font-weight:bold;}
+        nav a{color:#fff;text-decoration:none;margin-left:22px;transition:.2s;}
+        nav a:hover{opacity:.75;}
+        .float-book{
+            position:fixed;bottom:30px;right:24px;background:#e67e22;color:#fff;
+            padding:14px 22px;border-radius:99px;text-decoration:none;font-weight:bold;
+            box-shadow:0 4px 14px rgba(0,0,0,.18);z-index:99;
+        }
+        .banner{
+            height:100vh;min-height:600px;
+            display:flex;align-items:center;padding:0 40px;color:#fff;position:relative;
+            overflow:hidden;
+        }
+        .banner-bg{
+            position:absolute;inset:-10% 0;background:url("camp-hero.jpg") center/cover no-repeat;
+            will-change:transform;z-index:0;
+        }
+        .banner::before{
+            content:"";position:absolute;inset:0;z-index:1;
+            background:linear-gradient(180deg,rgba(20,30,28,.25) 0%,rgba(20,30,28,.15) 40%,rgba(20,30,28,.55) 100%);
+        }
+        .banner-text{position:relative;z-index:2;max-width:760px;}
+        .banner-text .eyebrow{
+            display:inline-block;padding:6px 16px;border:1px solid rgba(255,255,255,.5);
+            border-radius:99px;font-size:13px;letter-spacing:3px;margin-bottom:20px;
+            backdrop-filter:blur(4px);
+        }
+        .banner h1{font-size:64px;line-height:1.1;margin-bottom:18px;font-weight:800;text-shadow:0 4px 24px rgba(0,0,0,.3);}
+        .banner p{font-size:19px;line-height:1.8;opacity:.95;max-width:600px;}
+        .banner-btn{
+            display:inline-block;margin-top:28px;background:#e67e22;color:#fff;
+            padding:14px 32px;border-radius:99px;text-decoration:none;font-weight:500;
+            letter-spacing:1px;box-shadow:0 6px 20px rgba(230,126,34,.4);
+            transition:transform .25s;
+        }
+        .banner-btn:hover{transform:translateY(-2px);}
+        .scroll-hint{
+            position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+            z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;
+            color:rgba(255,255,255,.85);font-size:12px;letter-spacing:3px;
+        }
+        .mouse{
+            width:24px;height:40px;border:2px solid rgba(255,255,255,.8);border-radius:14px;
+            position:relative;
+        }
+        .mouse::after{
+            content:"";position:absolute;left:50%;top:7px;width:3px;height:8px;
+            background:#fff;border-radius:2px;transform:translateX(-50%);
+            animation:wheel 1.6s infinite;
+        }
+        @keyframes wheel{
+            0%{opacity:1;top:7px;}
+            100%{opacity:0;top:22px;}
+        }
+        section{padding:64px 40px;background:#fff;}
+        section.bg{background:var(--light-bg);}
+        .title{text-align:center;font-size:32px;color:var(--main-green);margin-bottom:12px;}
+        .subtitle{text-align:center;color:#606966;margin-bottom:42px;font-size:16px;}
+
+        .adv-wrap{
+            max-width:1140px;margin:0 auto;display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;
+        }
+        .adv-card{background:#fff;padding:28px 24px;border-radius:12px;box-shadow:0 2px 12px #0000000f;}
+        .adv-card h4{color:var(--main-green);margin-bottom:10px;font-size:19px;}
+
+        .item-card-box{max-width:1100px;margin:0 auto;display:grid;gap:32px;}
+        .item-card{
+            background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,.08);
+            overflow:hidden;
+        }
+        .item-head{background:var(--main-green);color:#fff;padding:16px 24px;font-size:20px;font-weight:600;}
+        .item-body{padding:24px;}
+        .item-intro{margin-bottom:10px;color:#555;}
+        table{width:100%;border-collapse:collapse;margin-top:12px;}
+        th,td{border:1px solid var(--border);padding:11px 14px;text-align:left;font-size:15px;vertical-align:top;}
+        th{background:var(--light-green);color:#fff;}
+        td.price{color:var(--price);font-size:18px;font-weight:bold;white-space:nowrap;}
+        .tip-text{font-size:14px;color:#555;margin-top:12px;line-height:1.7;}
+        .notice{
+            margin-top:18px;padding:14px 16px;background:#fff6ed;
+            border-left:4px solid #e67e22;border-radius:6px;color:#7a4b24;
+        }
+        .price-section-title{
+            color:var(--main-green);font-size:20px;font-weight:bold;margin-top:20px;margin-bottom:6px;
+        }
+
+        .team-wrap{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:44px;}
+        .team-card{text-align:center;}
+        .team-card img{width:230px;height:230px;object-fit:cover;border-radius:50%;margin-bottom:16px;}
+        .team-card h3{font-size:22px;color:var(--main-green);}
+        .team-card p{margin-top:10px;color:#555;line-height:1.65;}
+
+        .gallery-wrap{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;}
+        .gallery-wrap img{width:100%;height:230px;object-fit:cover;border-radius:10px;}
+
+        .coop-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;}
+        .coop-card{background:#fff;padding:26px;border-radius:12px;box-shadow:0 2px 12px #0000000f;}
+        .coop-card h4{color:var(--main-green);margin-bottom:12px;font-size:18px;}
+
+        footer{background:var(--main-green);color:#fff;text-align:center;padding:36px;line-height:1.9;}
+
+        @media(max-width:768px){
+            header{padding:14px 20px;}
+            .logo{font-size:18px;}
+            nav{display:flex;flex-wrap:wrap;gap:8px;}
+            nav a{margin-left:10px;font-size:14px;}
+            .banner{padding:0 22px;min-height:560px;}
+            .banner h1{font-size:40px;}
+            .banner p{font-size:16px;}
+            section{padding:42px 20px;}
+            table{font-size:13px;}
+            th,td{padding:8px 6px;}
+            td.price{font-size:16px;}
+            .item-body{padding:16px;}
+        }
+
+        /* ===== 荣誉贴纸相册 ===== */
+        .honor-stage{
+            max-width:680px;margin:0 auto;position:relative;
+            min-height:480px;display:flex;align-items:center;justify-content:center;
+        }
+        .sticker-card{
+            position:absolute;background:#fff;padding:14px 14px 18px;
+            border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.18);
+            transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease;
+            transform-origin:center center;cursor:pointer;max-width:88%;
+        }
+        .sticker-card img{
+            width:100%;display:block;border-radius:3px;
+        }
+        .sticker-card .cap{
+            text-align:center;margin-top:10px;font-size:15px;color:#555;
+            font-weight:600;letter-spacing:.5px;
+        }
+        .sticker-card.active{
+            transform:rotate(-2deg) scale(1);z-index:5;opacity:1;
+        }
+        .sticker-card.left{
+            transform:rotate(-8deg) translateX(-70%) scale(.82);opacity:.35;z-index:2;
+        }
+        .sticker-card.right{
+            transform:rotate(6deg) translateX(70%) scale(.82);opacity:.35;z-index:2;
+        }
+        .sticker-card:hover{opacity:1;}
+        .honor-tabs{
+            display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap;
+        }
+        .honor-tab{
+            padding:9px 22px;border-radius:99px;border:2px solid var(--main-green);
+            background:#fff;color:var(--main-green);font-weight:600;font-size:15px;
+            cursor:pointer;transition:.25s;
+        }
+        .honor-tab:hover{background:var(--main-green);color:#fff;}
+        .honor-tab.on{background:var(--main-green);color:#fff;}
+        .honor-hint{text-align:center;color:#999;font-size:13px;margin-top:14px;}
+        @media(max-width:600px){
+            .honor-stage{min-height:380px;}
+            .sticker-card.left{transform:rotate(-6deg) translateX(-35%) scale(.78);}
+            .sticker-card.right{transform:rotate(5deg) translateX(35%) scale(.78);}
+        }
+
+        /* ===== 营地科技画廊 ===== */
+        #facility{
+            background:linear-gradient(180deg,#0f1f1c 0%,#162925 100%);
+            padding:80px 40px;
+        }
+        #facility .title{color:#fff;}
+        #facility .subtitle{color:rgba(255,255,255,.55);}
+        .gallery{
+            max-width:1100px;margin:0 auto;position:relative;
+        }
+        .gallery-stage{
+            position:relative;width:100%;aspect-ratio:16/9;
+            border-radius:20px;overflow:hidden;cursor:zoom-in;
+            box-shadow:0 0 0 1px rgba(120,220,180,.15),0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(80,200,160,.08);
+        }
+        .gallery-stage img{
+            width:100%;height:100%;object-fit:cover;
+            opacity:0;transition:opacity .5s ease;
+        }
+        .gallery-stage img.show{opacity:1;}
+        .gallery-stage .overlay{
+            position:absolute;left:0;right:0;bottom:0;
+            background:linear-gradient(transparent,rgba(0,0,0,.75));
+            padding:40px 28px 22px;color:#fff;
+        }
+        .gallery-stage .overlay h3{font-size:22px;font-weight:600;letter-spacing:1px;margin-bottom:4px;}
+        .gallery-stage .overlay p{font-size:13px;opacity:.7;}
+        .gallery-nav{
+            position:absolute;top:50%;transform:translateY(-50%);
+            width:46px;height:46px;border-radius:50%;
+            background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+            color:#fff;font-size:22px;cursor:pointer;backdrop-filter:blur(8px);
+            transition:.25s;display:flex;align-items:center;justify-content:center;
+            z-index:5;
+        }
+        .gallery-nav:hover{background:rgba(120,220,180,.25);border-color:rgba(120,220,180,.5);box-shadow:0 0 20px rgba(120,220,180,.3);}
+        .gallery-nav.prev{left:-23px;}
+        .gallery-nav.next{right:-23px;}
+        .thumbs{
+            margin-top:22px;display:flex;gap:10px;overflow-x:auto;
+            padding:6px 2px;scrollbar-width:thin;scrollbar-color:rgba(120,220,180,.4) transparent;
+        }
+        .thumbs::-webkit-scrollbar{height:6px;}
+        .thumbs::-webkit-scrollbar-thumb{background:rgba(120,220,180,.3);border-radius:3px;}
+        .thumb{
+            flex:0 0 96px;height:64px;border-radius:8px;overflow:hidden;cursor:pointer;
+            opacity:.45;transition:.25s;border:2px solid transparent;position:relative;
+        }
+        .thumb img{width:100%;height:100%;object-fit:cover;}
+        .thumb:hover{opacity:.8;}
+        .thumb.active{
+            opacity:1;border-color:#78dcb4;
+            box-shadow:0 0 14px rgba(120,220,180,.5);
+        }
+        .gallery-hint{text-align:center;color:rgba(255,255,255,.4);font-size:12px;margin-top:16px;letter-spacing:1px;}
+        /* lightbox */
+        #lightbox{
+            display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:2000;
+            align-items:center;justify-content:center;flex-direction:column;
+        }
+        #lightboxImg{max-width:92%;max-height:84vh;border-radius:10px;box-shadow:0 10px 50px rgba(0,0,0,.6);}
+        #lightboxCap{color:#fff;margin-top:16px;font-size:15px;letter-spacing:1px;opacity:.85;}
+        #lightboxClose{
+            position:absolute;top:24px;right:30px;background:none;border:none;color:#fff;
+            font-size:36px;cursor:pointer;line-height:1;
+        }
+        .lb-arrow{
+            position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
+            border:none;color:#fff;font-size:28px;width:48px;height:48px;border-radius:50%;
+            cursor:pointer;transition:.2s;
+        }
+        .lb-arrow:hover{background:rgba(120,220,180,.3);}
+        #lbPrev{left:20px;}
+        #lbNext{right:20px;}
+        @media(max-width:700px){
+            #facility{padding:50px 18px;}
+            .gallery-stage{aspect-ratio:4/3;}
+            .gallery-nav.prev{left:8px;}
+            .gallery-nav.next{right:8px;}
+            .thumb{flex:0 0 72px;height:48px;}
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="logo">菠萝湾营地 | PINEAPPLE BAY CAMP</div>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#about">关于我们</a>
+        <a href="#project">项目价格</a>
+        <a href="#team">核心团队</a>
+        <a href="#facility">营地实拍</a>
+        <a href="#cooperate">商务合作</a>
+        <a href="#honor">荣誉口碑</a>
+        <a href="#contact">联系我们</a>
+    </nav>
+</header>
+
+<a class="float-book" href="#contact">📞立即预约</a>
+
+<div class="banner" id="home">
+    <div class="banner-bg" id="bannerBg"></div>
+    <div class="banner-text">
+        <span class="eyebrow">PINEAPPLE BAY CAMP · 钦州</span>
+        <h1>湾有趣 · 营地见</h1>
+        <p>
+            钦州优质户外团建·亲子研学·不过夜营地之选<br>
+            临江自然场地｜柴火窑鸡｜烧烤K歌｜派对轰趴一站式综合户外营地
+        </p>
+        <a class="banner-btn" href="#project">查看项目收费 ↓</a>
+    </div>
+    <div class="scroll-hint">
+        <div class="mouse"></div>
+        <span>SCROLL</span>
+    </div>
+</div>
+
+<section id="about" class="bg">
+    <h2 class="title">关于我们</h2>
+    <div style="max-width:1080px;margin:0 auto;line-height:1.8;font-size:16px;color:#444;margin-bottom:44px;">
+        <p>菠萝湾营地坐落于钦州平山岛对面，毗邻平陆运河，自然风光优越。集户外野炊、团建拓展、亲子研学、休闲露营、派对轰趴于一体的一站式综合户外营地。</p>
+        <p style="margin-top:12px;">营地主打<span style="color:#2c413b;font-weight:bold;">「自然体验、沉浸式烟火户外、轻社交治愈场景」</span>，告别传统枯燥团建，主打好玩、轻松、出片、高体验感。</p>
+    </div>
+
+    <h3 class="subtitle">四大核心优势</h3>
+    <div class="adv-wrap">
+        <div class="adv-card">
+            <h4>自然生态场地</h4>
+            <p>临江开阔场地，空气清新，超大活动空间</p>
+        </div>
+        <div class="adv-card">
+            <h4>项目丰富全面</h4>
+            <p>窑鸡窑番薯、烧烤、露营、K歌、天幕休闲</p>
+        </div>
+        <div class="adv-card">
+            <h4>全客群适配</h4>
+            <p>企业团建、亲子研学、闺蜜聚会、生日派对均可</p>
+        </div>
+        <div class="adv-card">
+            <h4>专业落地服务</h4>
+            <p>全程对接、场地布置、流程策划、后勤保障</p>
+        </div>
+    </div>
+
+    <div style="max-width:1080px;margin:30px auto 0 auto;line-height:1.8;font-size:16px;color:#444;">
+        <p><strong>服务团队</strong></p>
+        <p>营地配备专业现场服务团队，涵盖窑烤实操、食材加工、活动执行、后勤保障岗位，为企业团建、亲子研学、散客聚会提供全套落地接待保障。</p>
+    </div>
+</section>
+
+<section id="project">
+    <h2 class="title">营地经营项目收费标准</h2>
+    <p class="subtitle">明码标价 · 放心消费 · 具体收费以营地现场公示为准</p>
+
+    <div class="item-card-box">
+
+        <!-- 1 用餐 -->
+        <div class="item-card">
+            <div class="item-head">🍽️ 01｜用餐</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>收费标准</th></tr>
+                    <tr>
+                        <td>自带自加工</td>
+                        <td class="price">100元/台</td>
+                    </tr>
+                </table>
+                <div class="tip-text">
+                    来料加工详见加工价目表，提供就餐场所和场地。
+                </div>
+            </div>
+        </div>
+
+        <!-- 2 烧烤 -->
+        <div class="item-card">
+            <div class="item-head">🔥 02｜烧烤</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>套餐</th><th>套餐内容</th><th>价格</th></tr>
+                    <tr>
+                        <td>套餐一</td>
+                        <td>烧烤食材自备，提供一个炉（含6斤炭）、1张桌子、10张椅子</td>
+                        <td class="price">100元</td>
+                    </tr>
+                    <tr>
+                        <td>套餐二</td>
+                        <td>提供一个炉（含6斤炭）、2张桌子、15张椅子</td>
+                        <td class="price">150元</td>
+                    </tr>
+                    <tr>
+                        <td>加炭</td>
+                        <td>按3斤炭/炉补充</td>
+                        <td class="price">10元/次</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3 窑番薯、鸡 -->
+        <div class="item-card">
+            <div class="item-head">🍠 03｜窑番薯、鸡</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>收费标准</th></tr>
+                    <tr><td>场地及泥块</td><td class="price">30元/窑</td></tr>
+                    <tr><td>柴火</td><td class="price">20元/窑</td></tr>
+                    <tr><td>搭窑</td><td class="price">20元/窑</td></tr>
+                </table>
+
+                <table>
+                    <tr><th>套餐</th><th>套餐内容</th><th>价格</th></tr>
+                    <tr>
+                        <td>套餐一</td>
+                        <td>提供搭、烧、打窑服务，1桌6椅，20斤木柴</td>
+                        <td class="price">88元</td>
+                    </tr>
+                    <tr>
+                        <td>套餐二</td>
+                        <td>提供搭、烧、打窑服务，1桌8椅，20斤木柴、鸡1只、番薯5斤</td>
+                        <td class="price">168元</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4 煮粥 -->
+        <div class="item-card">
+            <div class="item-head">🥣 04｜煮粥</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>说明</th><th>价格</th></tr>
+                    <tr>
+                        <td>白粥</td>
+                        <td>自带米，每锅最多6斤米</td>
+                        <td class="price">6元/斤</td>
+                    </tr>
+                    <tr>
+                        <td>肉粥</td>
+                        <td>自带米及肉料，每锅最多6斤米</td>
+                        <td class="price">10元/斤</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 5 饺子 -->
+        <div class="item-card">
+            <div class="item-head">🥟 05｜饺子</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>加工方式</th><th>价格</th></tr>
+                    <tr>
+                        <td>蒸、煮</td>
+                        <td class="price">10元/斤</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 6 KTV -->
+        <div class="item-card">
+            <div class="item-head">🎤 06｜KTV</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>套餐</th><th>场地</th><th>价格</th></tr>
+                    <tr><td>套餐一</td><td>大厅</td><td class="price">200元</td></tr>
+                    <tr><td>套餐一</td><td>小房</td><td class="price">250元</td></tr>
+                    <tr><td>套餐二</td><td>大厅</td><td class="price">268元</td></tr>
+                    <tr><td>套餐二</td><td>小房</td><td class="price">298元</td></tr>
+                </table>
+                <div class="tip-text">
+                    <strong>套餐一：</strong>提供茶水1壶，全场免费提供开水。<br>
+                    <strong>套餐二：</strong>送啤酒2打、花生一碟、瓜子一碟、茶水一壶，全场免费提供开水。
+                </div>
+            </div>
+        </div>
+
+        <!-- 7 DJ打碟 -->
+        <div class="item-card">
+            <div class="item-head">🎧 07｜DJ打碟</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>项目</th><th>服务内容</th><th>价格</th></tr>
+                    <tr>
+                        <td>DJ打碟</td>
+                        <td>场地费；提供茶水1壶，全场免费提供开水</td>
+                        <td class="price">350元</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 8 钓鱼、虾 -->
+        <div class="item-card">
+            <div class="item-head">🎣 08｜钓鱼、虾</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>人群</th><th>收费标准</th></tr>
+                    <tr><td>成人</td><td class="price">15元/杆</td></tr>
+                    <tr><td>小孩</td><td class="price">10元/杆</td></tr>
+                </table>
+                <div class="tip-text">
+                    鱼获带走按斤重量计。
+                </div>
+            </div>
+        </div>
+
+        <!-- 9 麻将 -->
+        <div class="item-card">
+            <div class="item-head">🀄 09｜麻将</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>方式</th><th>收费标准</th></tr>
+                    <tr><td>自动</td><td class="price">60元</td></tr>
+                    <tr><td>四小时</td><td class="price">60元</td></tr>
+                    <tr><td>超出</td><td class="price">15元/小时</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 10 天幕 -->
+        <div class="item-card">
+            <div class="item-head">⛺ 10｜天幕</div>
+            <div class="item-body">
+                <table>
+                    <tr><th>规格</th><th>价格</th></tr>
+                    <tr><td>大</td><td class="price">50元/个</td></tr>
+                    <tr><td>小</td><td class="price">30元/个</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 加工价目表 -->
+        <div class="item-card">
+            <div class="item-head">🍳 食材来料加工｜价格公示牌</div>
+            <div class="item-body">
+                <p class="item-intro">新鲜食材 · 用心加工 · 美味加倍！</p>
+
+                <table>
+                    <tr><th>加工方式</th><th>品种</th><th>单位</th><th>价格</th></tr>
+                    <tr><td>白切</td><td>鸡、鸭、鹅等</td><td>斤</td><td class="price">10元/斤</td></tr>
+                    <tr><td>白灼、盐水</td><td>猪肚、虾、鱿鱼、螺等</td><td>斤</td><td class="price">10元/斤</td></tr>
+                    <tr><td>清蒸、蒜蓉蒸</td><td>猪舌、鱼、扇贝</td><td>斤</td><td class="price">13元/斤</td></tr>
+                    <tr><td>蒜蓉蒸</td><td>带子、带壳大虾</td><td>个</td><td class="price">2元/个</td></tr>
+                    <tr><td>蒜蓉开边蒸</td><td>大虾、青龙</td><td>斤</td><td class="price">20元/斤</td></tr>
+                    <tr><td>脆炸</td><td>排骨、生蚝、沙虫</td><td>斤</td><td class="price">20元/斤</td></tr>
+                    <tr><td>香煎、焖、姜葱炒</td><td>花蟹、鱼、螺</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>麻辣、盐焗</td><td>虾、蟹、螺</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>椒盐、红烧</td><td>虾、蟹、螺</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>镬气小炒类</td><td>生炒时蔬等</td><td>斤</td><td class="price">10元/斤</td></tr>
+                    <tr><td>煲仔/啫啫砂锅类</td><td>鸡、鱼头等</td><td>斤</td><td class="price">15元/斤</td></tr>
+                    <tr><td>炖品老火汤类</td><td>自带食材</td><td>斤</td><td class="price">20元/斤</td></tr>
+                </table>
+
+                <div class="price-section-title">🥣 煮粥、煮汤｜按盘（盆）计收费</div>
+                <table>
+                    <tr><th>人数</th><th>价格</th></tr>
+                    <tr><td>4–6人</td><td class="price">28元/盘</td></tr>
+                    <tr><td>6–10人</td><td class="price">38元/盘</td></tr>
+                    <tr><td>10–20人</td><td class="price">48元/盘</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="notice" style="max-width:1100px;margin:32px auto 0;">
+        <strong>温馨提示：</strong>营地内谢绝自带酒水，团队活动需预约沟通好除外；自带啤酒收取30元/件服务费。
+    </div>
+</section>
+
+<section id="team" class="bg">
+    <h2 class="title">核心团队</h2>
+    <div class="team-wrap">
+        <div class="team-card">
+            <img src="林伟杰照片.jpg" alt="林伟杰">
+            <h3>林伟杰｜创始人</h3>
+            <p>菠萝湾营地创始人，负责营地场地规划、基建工程与整体运营管理。</p>
+        </div>
+        <div class="team-card">
+            <img src="王春芳照片.jpg" alt="王春芳">
+            <h3>王春芳｜战略股东（场地资源支持）</h3>
+            <p>营地战略股东，提供核心场地资源，参与项目战略方向规划，为营地建设发展提供重要支撑。</p>
+        </div>
+        <div class="team-card">
+            <img src="kelu-lin.jpg" alt="林可璐">
+            <h3>林可璐｜CMO首席营销官</h3>
+            <p>负责品牌IP打造、景观场景策划、新媒体内容运营、团建市场拓展与品牌视觉体系搭建。</p>
+        </div>
+    </div>
+</section>
+
+<section id="facility">
+    <h2 class="title">营地实拍 · 设施环境</h2>
+    <p class="subtitle">临江景色｜大草坪｜咖啡屋｜KTV·DJ｜花架庭院 · 从白天到夜晚</p>
+    <div class="gallery">
+        <div class="gallery-stage" id="stage">
+            <img id="mainImg" src="photo-lawn-day.jpg" alt="">
+            <div class="overlay">
+                <h3 id="mainTitle">大草坪 · 白天</h3>
+                <p id="mainDesc">天幕下的慵懒午后</p>
+            </div>
+        </div>
+        <button class="gallery-nav prev" id="gPrev">‹</button>
+        <button class="gallery-nav next" id="gNext">›</button>
+        <div class="thumbs" id="thumbs"></div>
+        <p class="gallery-hint">点击缩略图切换 · 点击大图放大浏览</p>
+    </div>
+</section>
+
+<div id="lightbox">
+    <button id="lightboxClose">&times;</button>
+    <button class="lb-arrow" id="lbPrev">‹</button>
+    <img id="lightboxImg" src="">
+    <div id="lightboxCap"></div>
+    <button class="lb-arrow" id="lbNext">›</button>
+</div>
+
+<section id="cooperate" class="bg">
+    <h2 class="title">商务合作模式</h2>
+    <p class="subtitle">单次落地、专场包场、长期合作、商业置换均可洽谈</p>
+    <div class="coop-wrap">
+        <div class="coop-card">
+            <h4>企业公司｜团建定制</h4>
+            <p>公司团建、部门活动、年会轻户外；提供专属方案、包场、布置、全流程对接。</p>
+        </div>
+        <div class="coop-card">
+            <h4>教育机构｜亲子研学</h4>
+            <p>幼儿园、培训机构、旅游团；主打自然实践、亲子动手体验主题活动。</p>
+        </div>
+        <div class="coop-card">
+            <h4>品牌商家｜联营合作</h4>
+            <p>车行、婚纱、医美、自媒体；场地联名，双向流量曝光互换。</p>
+        </div>
+        <div class="coop-card">
+            <h4>活动策划公司</h4>
+            <p>婚庆、传媒团队；长协底价、专场独占、档期优先锁定。</p>
+        </div>
+    </div>
+
+    <div style="max-width:980px;margin:44px auto 0;background:#fff;padding:26px;border-radius:12px;box-shadow:0 2px 10px #0000000f;">
+        <h4 style="color:var(--main-green);margin-bottom:14px;font-size:19px;">甲方合作专属权益</h4>
+        <ul style="line-height:1.8;color:#444;padding-left:20px;">
+            <li>长期合作甲方专属渠道优惠价</li>
+            <li>活动全程1v1专属对接落地</li>
+            <li>营地官方渠道免费宣传推广</li>
+            <li>朋友圈社群免费帮忙转发活动</li>
+            <li>周末节假日黄金档期优先锁定</li>
+            <li>免费基础布置，水电配套使用</li>
+            <li>可开具场地合作相关证明资料</li>
+        </ul>
+    </div>
+</section>
+
+<section id="honor">
+    <h2 class="title">荣誉与口碑</h2>
+    <div style="text-align:center;margin-bottom:10px;">
+        <p style="font-size:18px;color:#444;">2026年度广西甄选《最具人气露营地》大众口碑评选活动</p>
+        <p style="font-size:24px;color:#b47800;font-weight:bold;margin-top:8px;">亚军</p>
+    </div>
+
+    <div class="honor-stage" id="honorStage">
+        <div class="sticker-card active" data-idx="0">
+            <img src="honor-plaque.jpg" alt="荣誉牌匾">
+            <div class="cap">荣誉牌匾 · 最具人气露营地亚军</div>
+        </div>
+        <div class="sticker-card right" data-idx="1">
+            <img src="honor-cert.jpg" alt="荣誉证书">
+            <div class="cap">荣誉证书</div>
+        </div>
+        <div class="sticker-card left" data-idx="2">
+            <img src="honor-trophy.jpg" alt="冠军奖杯">
+            <div class="cap">亚军奖杯</div>
+        </div>
+    </div>
+
+    <div class="honor-tabs">
+        <div class="honor-tab on" data-tab="0">牌匾</div>
+        <div class="honor-tab" data-tab="1">证书</div>
+        <div class="honor-tab" data-tab="2">奖杯</div>
+    </div>
+    <p class="honor-hint">点击卡片或下方标签，像翻菜单一样切换查看</p>
+</section>
+
+<section id="contact" class="bg">
+    <h2 class="title">联系我们 · 预约咨询</h2>
+    <div style="max-width:720px;margin:0 auto;text-align:center;line-height:2.3;font-size:17px;">
+        <p><strong>营地名称：</strong>菠萝湾营地 PINEAPPLE BAY CAMP</p>
+        <p><strong>营地地址：</strong>广西钦州·钦南区尖山街道菠萝桥7号</p>
+        <p><strong>营业时间：</strong>09:00‑24:00，KTV包厢可预约至凌晨02:00</p>
+        <p><strong>合作预约热线：</strong>13197779906 &nbsp; 18977702593</p>
+        <p style="margin-top:22px;color:var(--main-green);font-weight:bold;font-size:18px;">湾有趣 · 营地见，期待与各大品牌、机构、企业携手共赢</p>
+        <div style="margin-top:30px;">
+            <button id="feedbackBtn"
+               style="display:inline-block;padding:14px 42px;background:transparent;color:var(--main-green);border:2px solid var(--main-green);border-radius:99px;font-size:16px;font-weight:600;letter-spacing:3px;cursor:pointer;transition:.3s;">
+                ✉ 意见反馈
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- 意见反馈信纸弹窗 -->
+<div id="letterModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:center;justify-content:center;padding:20px;">
+    <div style="background:#fdfbf7;max-width:620px;width:100%;max-height:88vh;overflow-y:auto;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;padding:48px 44px 40px;">
+        <button id="letterClose" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:26px;color:#999;cursor:pointer;line-height:1;">&times;</button>
+        <div style="text-align:center;margin-bottom:28px;">
+            <div style="font-size:13px;letter-spacing:4px;color:#b47800;margin-bottom:10px;">A LETTER FROM PINEAPPLE BAY</div>
+            <h3 style="font-size:24px;color:var(--main-green);font-weight:700;letter-spacing:1px;">致每一位到访菠萝湾的朋友</h3>
+        </div>
+        <div style="font-size:15.5px;line-height:2;color:#444;font-family:Georgia,'Songti SC',serif;">
+            <p style="text-indent:2em;">尊敬的客人：</p>
+            <p style="text-indent:2em;margin-top:10px;">您好。</p>
+            <p style="text-indent:2em;margin-top:10px;">感谢您在万千营地中，选择了菠萝湾。我们深知，户外的体验从来不完美——天幕下的风、窑鸡里的柴、服务里的疏忽，总有不那么如人意的时候。如果这一次，营地的设施或服务没有达到您的预期，我们想郑重地说一声：抱歉。</p>
+            <p style="text-indent:2em;margin-top:10px;">同时，我们也想听一听您的声音。无论是一条让您皱眉的细节，还是一个让我们变得更好的创意；无论是对一顿饭、一场聚会的建议，还是对下一次相遇的期待——都欢迎写下来，告诉我们。</p>
+            <p style="text-indent:2em;margin-top:10px;">每一封来信，我们都会亲手拆开、认真读完、逐条改进。您的一句话，可能就是下一个客人更舒服的那一度。</p>
+            <p style="text-indent:2em;margin-top:10px;">期待与您再次相见。</p>
+        </div>
+        <div style="text-align:right;margin-top:28px;font-family:Georgia,'Songti SC',serif;color:#555;font-size:15px;line-height:1.9;">
+            钦州菠萝湾营地团队<br>敬上
+        </div>
+        <div style="margin-top:28px;padding-top:22px;border-top:1px dashed #ccc;text-align:center;">
+            <p style="font-size:14px;color:#666;margin-bottom:14px;">您的反馈，我们都会认真读</p>
+            <button id="copyEmailBtn" style="padding:12px 32px;background:var(--main-green);color:#fff;border:none;border-radius:99px;font-size:14px;font-weight:600;cursor:pointer;letter-spacing:1px;">
+                复制反馈邮箱
+            </button>
+            <p style="margin-top:12px;font-size:14px;color:var(--main-green);font-weight:600;">1933757113@qq.com</p>
+        </div>
+    </div>
+</div>
+
+<div id="toast" style="position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--main-green);color:#fff;padding:12px 26px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.2);">
+    邮箱已复制，打开 QQ 邮箱粘贴发送即可
+</div>
+
+<footer>
+    © 2026 菠萝湾营地 版权所有<br>
+    广西钦州菠萝湾营地
+</footer>
+<script>
+(function(){
+    var cards = document.querySelectorAll('.sticker-card');
+    var tabs = document.querySelectorAll('.honor-tab');
+    var total = cards.length;
+    var cur = 0;
+
+    function render(idx){
+        cur = idx;
+        cards.forEach(function(card, i){
+            card.classList.remove('active','left','right');
+            var diff = (i - idx + total) % total;
+            if(diff === 0){ card.classList.add('active'); }
+            else if(diff === 1){ card.classList.add('right'); }
+            else { card.classList.add('left'); }
+        });
+        tabs.forEach(function(t, i){
+            t.classList.toggle('on', i === idx);
+        });
+    }
+    tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+            render(parseInt(tab.getAttribute('data-tab'),10));
+        });
+    });
+    cards.forEach(function(card){
+        card.addEventListener('click', function(){
+            if(card.classList.contains('active')){
+                render((cur + 1) % total);
+            } else {
+                render(parseInt(card.getAttribute('data-idx'),10));
+            }
+        });
+    });
+})();
+</script>
+<script>
+// 首屏视差滚动：背景缓慢上移，文字渐隐
+(function(){
+    var bg = document.getElementById('bannerBg');
+    var text = document.querySelector('.banner-text');
+    var hint = document.querySelector('.scroll-hint');
+    var banner = document.getElementById('home');
+    var ticking = false;
+    function onScroll(){
+        var y = window.scrollY;
+        var h = banner.offsetHeight;
+        if(y < h){
+            // 背景以 0.4 倍速度上移，产生纵深视差
+            bg.style.transform = 'translateY(' + (y * 0.4) + 'px) scale(1.1)';
+            // 文字渐隐上移
+            var op = Math.max(0, 1 - y / (h * 0.7));
+            text.style.opacity = op;
+            text.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+            // 滚动提示随滚动消失
+            if(hint){ hint.style.opacity = Math.max(0, 1 - y / 120); }
+        }
+        ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+        if(!ticking){
+            requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, {passive:true});
+    onScroll();
+})();
+</script>
+<script>
+// 意见反馈：信纸弹窗 + 复制邮箱
+(function(){
+    var btn = document.getElementById('feedbackBtn');
+    var modal = document.getElementById('letterModal');
+    var closeBtn = document.getElementById('letterClose');
+    var copyBtn = document.getElementById('copyEmailBtn');
+    var toast = document.getElementById('toast');
+    if(!btn || !modal) return;
+
+    function openModal(){ modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeModal(){ modal.style.display = 'none'; document.body.style.overflow = ''; }
+
+    btn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+
+    function showToast(){
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+        setTimeout(function(){
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(20px)';
+        }, 2200);
+    }
+    function fallbackCopy(text){
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+    }
+    copyBtn.addEventListener('click', function(){
+        var email = '1933757113@qq.com';
+        if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(email).then(showToast).catch(function(){ fallbackCopy(email); showToast(); });
+        } else {
+            fallbackCopy(email); showToast();
+        }
+    });
+})();
+</script>
+<script>
+// 科技画廊
+(function(){
+    var data = [
+        {src:'photo-lawn-day.jpg', title:'大草坪 · 白天', desc:'天幕下的慵懒午后'},
+        {src:'p01-riverside.jpg', title:'临江暮色', desc:'河边草坪的黄昏'},
+        {src:'p07-pavilion.jpg', title:'临水红亭', desc:'栈道尽头的亭子'},
+        {src:'photo-banyan.jpg', title:'大榕树 · 天使水境', desc:'树影池塘边'},
+        {src:'p05-cafe-night.jpg', title:'咖啡屋 · 夜', desc:'发光的CAFE小店'},
+        {src:'p02-lawn.jpg', title:'天幕草坪', desc:'大草坪上的白色天幕'},
+        {src:'p08-chimney.jpg', title:'烟囱水镜', desc:'老烟囱与水景'},
+        {src:'p03-lawn-chairs.jpg', title:'草坪桌椅', desc:'临江茶座'},
+        {src:'photo-lawn-night.jpg', title:'大草坪 · 夜晚', desc:'串灯亮起的营地夜晚'},
+        {src:'p06-cafe-night2.jpg', title:'咖啡屋 · 夜景', desc:'灯光下的小店'},
+        {src:'p04-flower-gate.jpg', title:'花门小院', desc:'爬藤植物门廊'},
+        {src:'p09-yard.jpg', title:'庭院花影', desc:'小院门口'},
+        {src:'p10-ktv.jpg', title:'KTV包厢', desc:'派对K歌空间'},
+        {src:'p11-dj.jpg', title:'DJ音乐区', desc:'镜面墙打碟区'},
+        {src:'p12-cinema.jpg', title:'露天影院', desc:'大幕布电影'},
+        {src:'p13-flowers.jpg', title:'花架三角梅', desc:'花架下的盆栽'}
+    ];
+    var cur = 0;
+    var mainImg = document.getElementById('mainImg');
+    var mainTitle = document.getElementById('mainTitle');
+    var mainDesc = document.getElementById('mainDesc');
+    var stage = document.getElementById('stage');
+    var thumbsBox = document.getElementById('thumbs');
+
+    // 生成缩略图
+    data.forEach(function(item, i){
+        var t = document.createElement('div');
+        t.className = 'thumb' + (i===0?' active':'');
+        t.innerHTML = '<img src="'+item.src+'" alt="">';
+        t.addEventListener('click', function(){ go(i); });
+        thumbsBox.appendChild(t);
+    });
+    var thumbs = thumbsBox.querySelectorAll('.thumb');
+
+    function go(i){
+        cur = (i + data.length) % data.length;
+        mainImg.classList.remove('show');
+        setTimeout(function(){
+            mainImg.src = data[cur].src;
+            mainTitle.textContent = data[cur].title;
+            mainDesc.textContent = data[cur].desc;
+            mainImg.onload = function(){ mainImg.classList.add('show'); };
+            if(mainImg.complete) mainImg.classList.add('show');
+        }, 200);
+        thumbs.forEach(function(t, idx){ t.classList.toggle('active', idx===cur); });
+        // 滚动缩略图到可见
+        var active = thumbs[cur];
+        if(active) active.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    }
+
+    document.getElementById('gPrev').addEventListener('click', function(){ go(cur-1); });
+    document.getElementById('gNext').addEventListener('click', function(){ go(cur+1); });
+
+    // lightbox
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var lbCap = document.getElementById('lightboxCap');
+    stage.addEventListener('click', function(){
+        lbImg.src = data[cur].src;
+        lbCap.textContent = data[cur].title + ' — ' + data[cur].desc;
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('lightboxClose').addEventListener('click', function(){ lb.style.display='none'; document.body.style.overflow=''; });
+    document.getElementById('lbPrev').addEventListener('click', function(){ go(cur-1); lbImg.src = data[cur].src; lbCap.textContent = data[cur].title+' — '+data[cur].desc; });
+    document.getElementById('lbNext').addEventListener('click', function(){ go(cur+1); lbImg.src = data[cur].src; lbCap.textContent = data[cur].title+' — '+data[cur].desc; });
+    lb.addEventListener('click', function(e){ if(e.target === lb){ lb.style.display='none'; document.body.style.overflow=''; } });
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){ lb.style.display='none'; document.body.style.overflow=''; }
+        if(e.key === 'ArrowLeft') go(cur-1);
+        if(e.key === 'ArrowRight') go(cur+1);
+    });
+
+    // 初始化
+    mainImg.classList.add('show');
+})();
+</script>
+</body>
+</html>
