@@ -188,6 +188,50 @@
             .sticker-card.left{transform:rotate(-6deg) translateX(-35%) scale(.78);}
             .sticker-card.right{transform:rotate(5deg) translateX(35%) scale(.78);}
         }
+
+        /* ===== 营地相册收藏夹 ===== */
+        .album{
+            max-width:1100px;margin:0 auto;display:grid;
+            grid-template-columns:1.3fr 1fr;grid-auto-rows:260px;gap:18px;
+        }
+        .album-item{
+            position:relative;overflow:hidden;border-radius:14px;cursor:pointer;
+            box-shadow:0 4px 16px rgba(0,0,0,.1);
+        }
+        .album-item img{
+            width:100%;height:100%;object-fit:cover;transition:transform .6s ease;
+        }
+        .album-item:hover img{transform:scale(1.06);}
+        .album-item .tag{
+            position:absolute;left:16px;bottom:16px;z-index:2;
+            background:rgba(0,0,0,.55);color:#fff;padding:6px 14px;border-radius:99px;
+            font-size:13px;letter-spacing:1px;backdrop-filter:blur(4px);
+        }
+        .album-item.big{grid-row:span 2;}
+        .album-tip{text-align:center;color:#999;font-size:13px;margin-top:18px;}
+        /* lightbox */
+        #lightbox{
+            display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;
+            align-items:center;justify-content:center;flex-direction:column;
+        }
+        #lightboxImg{max-width:92%;max-height:84vh;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.5);}
+        #lightboxCap{color:#fff;margin-top:16px;font-size:15px;letter-spacing:1px;opacity:.85;}
+        #lightboxClose{
+            position:absolute;top:24px;right:30px;background:none;border:none;color:#fff;
+            font-size:36px;cursor:pointer;line-height:1;
+        }
+        .lb-arrow{
+            position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);
+            border:none;color:#fff;font-size:28px;width:48px;height:48px;border-radius:50%;
+            cursor:pointer;transition:.2s;
+        }
+        .lb-arrow:hover{background:rgba(255,255,255,.3);}
+        #lbPrev{left:20px;}
+        #lbNext{right:20px;}
+        @media(max-width:700px){
+            .album{grid-template-columns:1fr;grid-auto-rows:240px;}
+            .album-item.big{grid-row:span 1;}
+        }
     </style>
 </head>
 
@@ -502,16 +546,31 @@
 
 <section id="facility">
     <h2 class="title">营地实拍 · 设施环境</h2>
-    <p class="subtitle">咖啡屋｜大草坪｜KTV包厢｜打卡南墙｜庭院水景</p>
-    <div class="gallery-wrap">
-        <img src="营地咖啡屋.jpg" alt="营地咖啡屋">
-        <img src="开阔草坪.jpg" alt="大草坪活动区">
-        <img src="宴会桌椅.jpg" alt="团建宴会场地">
-        <img src="KTV包厢.jpg" alt="KTV派对包厢">
-        <img src="南墙涂鸦.jpg" alt="打卡南墙涂鸦墙">
-        <img src="营地水景庭院.jpg" alt="营地庭院风景">
+    <p class="subtitle">咖啡屋｜大草坪｜天使水境｜白天到夜晚的营地日常</p>
+    <div class="album">
+        <div class="album-item big" data-idx="0">
+            <img src="photo-lawn-day.jpg" alt="大草坪·白天">
+            <span class="tag">大草坪 · 白天</span>
+        </div>
+        <div class="album-item" data-idx="1">
+            <img src="photo-banyan.jpg" alt="大榕树·天使水境">
+            <span class="tag">大榕树 · 天使水境</span>
+        </div>
+        <div class="album-item" data-idx="2">
+            <img src="photo-lawn-night.jpg" alt="大草坪·夜晚">
+            <span class="tag">大草坪 · 夜晚</span>
+        </div>
     </div>
+    <p class="album-tip">点击照片可放大浏览，左右切换</p>
 </section>
+
+<div id="lightbox">
+    <button id="lightboxClose">&times;</button>
+    <button class="lb-arrow" id="lbPrev">‹</button>
+    <img id="lightboxImg" src="">
+    <div id="lightboxCap"></div>
+    <button class="lb-arrow" id="lbNext">›</button>
+</div>
 
 <section id="cooperate" class="bg">
     <h2 class="title">商务合作模式</h2>
@@ -742,6 +801,46 @@
         } else {
             fallbackCopy(email); showToast();
         }
+    });
+})();
+</script>
+<script>
+// 营地相册 lightbox
+(function(){
+    var items = document.querySelectorAll('.album-item');
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var lbCap = document.getElementById('lightboxCap');
+    var close = document.getElementById('lightboxClose');
+    var prev = document.getElementById('lbPrev');
+    var next = document.getElementById('lbNext');
+    var cur = 0;
+    var data = [
+        {src:'photo-lawn-day.jpg', cap:'大草坪 · 白天 — 天幕下的慵懒午后'},
+        {src:'photo-banyan.jpg', cap:'大榕树 · 天使水境 — 树影池塘边'},
+        {src:'photo-lawn-night.jpg', cap:'大草坪 · 夜晚 — 串灯亮起的营地夜晚'}
+    ];
+    function show(i){
+        cur = (i + data.length) % data.length;
+        lbImg.src = data[cur].src;
+        lbCap.textContent = data[cur].cap;
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    items.forEach(function(item){
+        item.addEventListener('click', function(){
+            show(parseInt(item.getAttribute('data-idx'),10));
+        });
+    });
+    close.addEventListener('click', function(){ lb.style.display='none'; document.body.style.overflow=''; });
+    prev.addEventListener('click', function(){ show(cur-1); });
+    next.addEventListener('click', function(){ show(cur+1); });
+    lb.addEventListener('click', function(e){ if(e.target === lb){ lb.style.display='none'; document.body.style.overflow=''; } });
+    document.addEventListener('keydown', function(e){
+        if(lb.style.display !== 'flex') return;
+        if(e.key === 'Escape'){ lb.style.display='none'; document.body.style.overflow=''; }
+        if(e.key === 'ArrowLeft') show(cur-1);
+        if(e.key === 'ArrowRight') show(cur+1);
     });
 })();
 </script>
