@@ -587,16 +587,20 @@
         <p><strong>营业时间：</strong>09:00‑24:00，KTV包厢可预约至凌晨02:00</p>
         <p><strong>合作预约热线：</strong>13197779906 &nbsp; 18977702593</p>
         <p style="margin-top:22px;color:var(--main-green);font-weight:bold;font-size:18px;">湾有趣 · 营地见，期待与各大品牌、机构、企业携手共赢</p>
-        <div style="margin-top:28px;">
-            <a href="mailto:1933757113@qq.com?subject=菠萝湾营地·意见反馈&body=您好，我对菠萝湾营地有以下意见或建议：%0A"
-               style="display:inline-block;padding:12px 32px;border:2px solid var(--main-green);color:var(--main-green);border-radius:99px;text-decoration:none;font-weight:600;letter-spacing:1px;transition:.25s;"
-               onmouseover="this.style.background='var(--main-green)';this.style.color='#fff'"
-               onmouseout="this.style.background='transparent';this.style.color='var(--main-green)'">
-                ✉ 意见反馈
-            </a>
+        <div style="margin-top:30px;">
+            <button id="feedbackBtn"
+               style="display:inline-block;padding:14px 38px;background:var(--main-green);color:#fff;border:none;border-radius:99px;font-size:16px;font-weight:600;letter-spacing:1px;cursor:pointer;box-shadow:0 6px 18px rgba(44,65,59,.25);">
+                ✉ 复制邮箱 · 意见反馈
+            </button>
+            <p style="margin-top:14px;font-size:15px;color:#666;">
+                反馈邮箱：<strong style="color:var(--main-green);">1933757113@qq.com</strong>
+            </p>
         </div>
     </div>
 </section>
+<div id="toast" style="position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--main-green);color:#fff;padding:12px 26px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.2);">
+    邮箱已复制，打开 QQ 邮箱粘贴发送即可
+</div>
 
 <footer>
     © 2026 菠萝湾营地 版权所有<br>
@@ -668,6 +672,41 @@
         }
     }, {passive:true});
     onScroll();
+})();
+</script>
+<script>
+// 意见反馈：点击复制邮箱
+(function(){
+    var btn = document.getElementById('feedbackBtn');
+    var toast = document.getElementById('toast');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+        var email = '1933757113@qq.com';
+        function showToast(){
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateX(-50%) translateY(0)';
+            setTimeout(function(){
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(20px)';
+            }, 2200);
+        }
+        if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(email).then(showToast).catch(function(){
+                fallbackCopy(email); showToast();
+            });
+        } else {
+            fallbackCopy(email); showToast();
+        }
+    });
+    function fallbackCopy(text){
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+    }
 })();
 </script>
 </body>
