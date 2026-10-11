@@ -269,6 +269,18 @@ body{overflow:auto;background:#F7F5F0}
 }
 @media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
+
+/* 开场动画精简：保留原始欢迎海报，只做柔和淡入与轻微光晕 */
+#pb-intro{background:#f7f5ee!important;padding:12px 12px calc(76px + env(safe-area-inset-bottom))!important}
+#pb-intro:before{width:min(72vw,68vh,620px)!important;animation:pb-soft-halo 9s ease-in-out infinite!important;background:radial-gradient(circle,rgba(224,159,45,.11),rgba(39,107,69,.035) 58%,transparent 72%)!important}
+#pb-intro:after{inset:18px!important;border-color:rgba(39,107,69,.12)!important;border-radius:18px!important}
+#pb-intro .pb-poster-frame{filter:none!important;animation:pb-simple-in .75s ease-out .08s both!important}
+#pb-intro .pb-enter-poster{animation:pb-button-in .45s ease-out .55s both!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(11,50,25,.12)!important}
+@keyframes pb-simple-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pb-button-in{from{opacity:0;transform:translateX(-50%) translateY(4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes pb-soft-halo{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.99)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.015)}}
+@media(prefers-reduced-motion:reduce){#pb-intro:before,#pb-intro .pb-poster-frame,#pb-intro .pb-enter-poster{animation:none!important;opacity:1!important;transform:none!important}}
+
 </style>
 
 </head>
