@@ -281,6 +281,16 @@ body{overflow:auto;background:#F7F5F0}
 @keyframes pb-soft-halo{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.99)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.015)}}
 @media(prefers-reduced-motion:reduce){#pb-intro:before,#pb-intro .pb-poster-frame,#pb-intro .pb-enter-poster{animation:none!important;opacity:1!important;transform:none!important}}
 
+
+/* Bug fix: keep the original navigation controls usable on all screens */
+.bottom-nav{display:flex!important;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:8px}
+.nav-btn{min-height:44px}
+.stage{padding-bottom:100px!important}
+@media(min-width:900px){.pages{grid-template-columns:minmax(0,1fr)!important}.pages:before{display:none!important}.page{grid-column:1!important}}
+.drawer{z-index:120!important}
+.drawer .panel{z-index:2}
+.drawer .mask{z-index:1}
+
 </style>
 
 </head>
