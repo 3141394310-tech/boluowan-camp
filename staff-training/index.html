@@ -202,12 +202,12 @@ button:focus-visible{outline:3px solid #E09F2D;outline-offset:3px;}
 #pb-intro .pb-enter-poster{position:absolute;z-index:4;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%) translateY(8px);display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:42px;max-width:calc(100vw - 40px);padding:11px 20px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(11,50,25,.94);backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:750;letter-spacing:.04em;white-space:nowrap;box-shadow:0 8px 24px rgba(11,50,25,.18);opacity:0;animation:pb-cta-in .65s ease .9s forwards;transition:background .2s ease,box-shadow .2s ease}
 #pb-intro .pb-enter-poster:hover{background:#174b2a;box-shadow:0 12px 28px rgba(11,50,25,.24)}
 #pb-intro .pb-enter-poster span{font-size:18px;line-height:1}
-#pb-intro .pb-hint{position:absolute;z-index:4;bottom:max(67px,calc(55px + env(safe-area-inset-bottom)));left:0;right:0;text-align:center;font-size:10px;letter-spacing:1.6px;color:#4b5c40;opacity:0;animation:pb-hint-in .6s ease 1.05s forwards;pointer-events:none}
+#pb-intro 
 #pb-intro.pb-out{animation:pb-intro-out .52s cubic-bezier(.65,0,.35,1) forwards;pointer-events:none}
 @keyframes pb-halo{0%,100%{opacity:.55;scale:.98}50%{opacity:.9;scale:1.025}}
 @keyframes pb-poster-in{0%{opacity:0;transform:translateY(12px) scale(.985);filter:blur(2px) drop-shadow(0 16px 28px rgba(34,52,25,0))}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0) drop-shadow(0 16px 28px rgba(34,52,25,.13)}}
 @keyframes pb-cta-in{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-@keyframes pb-hint-in{from{opacity:0;transform:translateY(4px)}to{opacity:.9;transform:translateY(0)}}
+
 @keyframes pb-intro-out{to{opacity:0;visibility:hidden;transform:scale(1.008);filter:blur(1px)}}
 @media(max-height:600px){#pb-intro{padding-bottom:66px}#pb-intro .pb-poster-frame{width:min(46vh,56.152vw);max-height:calc(100dvh - 68px)}#pb-intro .pb-enter-poster{bottom:max(10px,env(safe-area-inset-bottom));min-height:36px;padding:8px 16px;font-size:12px}#pb-intro .pb-hint{display:none}}
 @media(min-width:768px){#pb-intro .pb-poster-frame{width:min(42vh,56.152vw,520px);max-height:calc(100dvh - 90px)}#pb-intro .pb-enter-poster{bottom:max(22px,env(safe-area-inset-bottom))}}
@@ -244,7 +244,6 @@ button:focus-visible{outline:3px solid #E09F2D;outline-offset:3px;}
 
 <div id="pb-intro" role="dialog" aria-label="菠萝湾营地欢迎页" aria-modal="true">
   <div class="pb-poster-frame" role="img" aria-label="欢迎来到菠萝湾营地大家庭，很高兴你能成为我们公司团队的一员"></div>
-  <div class="pb-hint">WELCOME TO PINEAPPLE BAY CAMP</div>
   <button class="pb-enter-poster" id="pb-enter" type="button" aria-label="点击进入员工培训">点击进入员工培训 <span aria-hidden="true">→</span></button>
 </div>
 <script>
