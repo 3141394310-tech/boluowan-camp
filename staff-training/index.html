@@ -291,6 +291,37 @@ body{overflow:auto;background:#F7F5F0}
 .drawer .panel{z-index:2}
 .drawer .mask{z-index:1}
 
+
+/* Welcome cutout mascot + persistent training progress checklist */
+#pb-intro{display:flex;flex-direction:column;gap:8px;background:radial-gradient(ellipse at 50% 38%,#fffdf7 0%,#f7f5ee 70%,#eeeee2 100%)!important;padding:24px 18px calc(90px + env(safe-area-inset-bottom))!important}
+#pb-intro:after{border:0!important}
+#pb-intro .pb-welcome{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:min(100%,560px);margin:auto}
+.pb-brand-mark{font-size:15px;font-weight:900;letter-spacing:.1em;color:#214e35}
+.pb-brand-mark span{display:block;margin-top:5px;font-size:9px;letter-spacing:.22em;font-weight:700;color:#9b8753}
+.pb-mascot{width:clamp(170px,30vh,250px);margin:8px auto 2px;animation:pb-mascot-float 3.6s ease-in-out infinite;transform-origin:50% 85%}
+.pb-mascot svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 12px 10px rgba(33,65,43,.08))}
+.pb-mascot .pb-leaves{transform-origin:130px 75px;animation:pb-leaf-wave 4.2s ease-in-out infinite}
+.pb-welcome-kicker{font-size:10px;letter-spacing:.24em;color:#a28a4c;font-weight:800;margin:8px 0}
+.pb-welcome h1{font-size:clamp(23px,4vw,32px);line-height:1.35;color:#214e35;letter-spacing:.04em;margin:2px 0 10px;font-weight:900}
+.pb-welcome-copy{font-size:15px;line-height:1.9;color:#345b42;margin:0}
+.pb-welcome-copy span{font-size:12px;color:#7b8579}
+#pb-intro .pb-enter-poster{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));animation:pb-button-in .5s ease-out .35s both!important}
+@keyframes pb-mascot-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
+@keyframes pb-leaf-wave{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(4deg)}}
+.progress-wrap{display:flex;align-items:center;gap:12px}
+.progress-wrap:after{content:attr(data-progress-label);font-size:12px;color:var(--muted);white-space:nowrap}
+.learning-progress{max-width:1100px;margin:0 auto 18px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 18px rgba(24,54,37,.04)}
+.lp-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.lp-title{font-size:16px;font-weight:850;color:var(--green-d)}
+.lp-summary{font-size:12px;color:var(--muted)}
+.lp-track{height:7px;border-radius:99px;background:#e9ece4;overflow:hidden;margin-bottom:14px}
+.lp-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#6e9b65,#1f603d);transition:width .25s}
+.lp-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.lp-item{display:flex;align-items:center;gap:8px;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fcfcf8;font-size:12px;color:#405447;cursor:pointer;text-align:left}
+.lp-item input{accent-color:#286542;flex:0 0 auto}
+.lp-item.done{background:#eef5eb;border-color:#b9d0b3;color:#275536}
+@media(max-width:520px){.learning-progress{padding:14px 12px}.lp-items{grid-template-columns:repeat(2,minmax(0,1fr))}.lp-item{font-size:11px;padding:8px}}
+
 </style>
 
 </head>
@@ -298,7 +329,33 @@ body{overflow:auto;background:#F7F5F0}
 <body>
 
 <div id="pb-intro" role="dialog" aria-label="菠萝湾营地欢迎页" aria-modal="true">
-  <div class="pb-poster-frame" role="img" aria-label="欢迎来到菠萝湾营地大家庭，很高兴你能成为我们公司团队的一员"></div>
+  <div class="pb-welcome">
+  <div class="pb-brand-mark">菠萝湾营地 <span>PINEAPPLE BAY CAMP</span></div>
+  <div class="pb-mascot" aria-hidden="true">
+   <svg viewBox="0 0 260 300" role="img">
+    <ellipse cx="130" cy="277" rx="62" ry="10" fill="#173e2a" opacity=".12"/>
+    <g class="pb-leaves" stroke="#1e6b43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M128 76 Q91 40 104 16 Q131 30 132 63" fill="#77a95b"/>
+     <path d="M132 68 Q130 26 159 10 Q167 42 143 72" fill="#4d8a4d"/>
+     <path d="M139 73 Q166 34 190 43 Q180 70 145 83" fill="#8dbb65"/>
+     <path d="M122 76 Q84 57 70 72 Q91 94 126 91" fill="#477f4a"/>
+    </g>
+    <path d="M76 104 Q83 72 130 70 Q177 72 185 104 L193 201 Q190 245 130 250 Q70 245 67 201Z" fill="#f5c95c" stroke="#285c3d" stroke-width="5"/>
+    <g stroke="#d69c36" stroke-width="3" opacity=".8"><path d="M88 95l15 17-16 14 17 16-16 16 17 17-15 17 16 17"/><path d="M130 78l-13 19 15 16-15 17 15 16-15 17 15 17-15 17 13 17"/><path d="M169 94l-15 17 16 14-17 16 16 16-17 17 16 17-15 17"/></g>
+    <path d="M76 151 Q130 133 184 151 L187 194 Q180 230 130 233 Q80 230 73 194Z" fill="#fff7e6" stroke="#285c3d" stroke-width="4"/>
+    <ellipse cx="111" cy="179" rx="5" ry="7" fill="#24452f"/><ellipse cx="150" cy="179" rx="5" ry="7" fill="#24452f"/>
+    <path d="M116 196 Q130 208 145 196" fill="none" stroke="#bd6049" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="94" cy="190" r="8" fill="#e98d77" opacity=".7"/><circle cx="166" cy="190" r="8" fill="#e98d77" opacity=".7"/>
+    <path d="M72 165 Q47 174 53 204 Q57 224 76 216" fill="#f5c95c" stroke="#285c3d" stroke-width="5"/>
+    <path d="M188 165 Q213 174 207 204 Q203 224 184 216" fill="#f5c95c" stroke="#285c3d" stroke-width="5"/>
+    <path d="M95 244 L90 267 Q104 278 121 269 L123 249 M139 249 L141 269 Q158 278 171 267 L165 244" fill="#3c754b" stroke="#285c3d" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M190 126q24 -22 28 -2q-3 13 -18 14" fill="none" stroke="#d9ae43" stroke-width="4" stroke-linecap="round"/>
+   </svg>
+  </div>
+  <p class="pb-welcome-kicker">WELCOME TO THE TEAM</p>
+  <h1>欢迎来到菠萝湾营地</h1>
+  <p class="pb-welcome-copy">湾有趣 · 营地见<br/><span>从这里开始，认识我们的品牌与服务标准</span></p>
+ </div>
   <button class="pb-enter-poster" id="pb-enter" type="button" aria-label="点击进入员工培训">点击进入员工培训 <span aria-hidden="true">→</span></button>
 </div>
 <script>
@@ -1037,33 +1094,52 @@ body{overflow:auto;background:#F7F5F0}
  var drawer=document.getElementById('drawer'),tocList=document.getElementById('tocList');
  var doneTip=document.getElementById('doneTip'),tipTimer=null,active=0;
  var prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
+ var progressKey='pb-training-progress-v1',completed={};
+ try{completed=JSON.parse(localStorage.getItem(progressKey)||'{}')||{};}catch(e){completed={};}
+ var stage=document.querySelector('.stage'),pagesWrap=document.getElementById('pages');
+ var tracker=document.createElement('section');tracker.className='learning-progress';tracker.setAttribute('aria-label','学习进度表');
+ tracker.innerHTML='<div class="lp-head"><div class="lp-title">我的学习进度</div><div class="lp-summary" id="lpSummary">已完成 0 / '+pages.length+' 项</div></div><div class="lp-track"><span id="lpFill"></span></div><div class="lp-items" id="lpItems"></div>';
+ if(stage&&pagesWrap)stage.insertBefore(tracker,pagesWrap);
+ var lpItems=tracker.querySelector('#lpItems'),lpSummary=tracker.querySelector('#lpSummary'),lpFill=tracker.querySelector('#lpFill');
+ function save(){try{localStorage.setItem(progressKey,JSON.stringify(completed));}catch(e){}}
+ function renderProgress(){
+  lpItems.innerHTML=titles.map(function(t,i){return '<label class="lp-item '+(completed[i]?'done':'')+'"><input type="checkbox" data-i="'+i+'" '+(completed[i]?'checked':'')+'><span>'+String(i+1).padStart(2,'0')+' · '+t+'</span></label>';}).join('');
+  lpItems.querySelectorAll('input').forEach(function(input){input.addEventListener('change',function(){var i=input.getAttribute('data-i');completed[i]=input.checked;save();renderProgress();});});
+  var count=Object.keys(completed).filter(function(k){return completed[k]&&Number(k)>=0&&Number(k)<pages.length;}).length;
+  lpSummary.textContent='已完成 '+count+' / '+pages.length+' 项';
+  lpFill.style.width=Math.round(count/pages.length*100)+'%';
+ }
  function renderTOC(){
-   tocList.innerHTML=titles.map(function(t,i){return '<button class="toc-item" data-i="'+i+'"><span class="tn">'+(i+1)+'</span>'+t+'</button>';}).join('');
-   tocList.querySelectorAll('.toc-item').forEach(function(b){b.addEventListener('click',function(){var i=Number(b.getAttribute('data-i'));closeDrawer();scrollToPage(i);});});
+  tocList.innerHTML=titles.map(function(t,i){return '<button class="toc-item" data-i="'+i+'"><span class="tn">'+(i+1)+'</span>'+t+'</button>';}).join('');
+  tocList.querySelectorAll('.toc-item').forEach(function(b){b.addEventListener('click',function(){var i=Number(b.getAttribute('data-i'));closeDrawer();scrollToPage(i);});});
  }
  function scrollToPage(i){if(!pages[i])return;pages[i].scrollIntoView({behavior:'smooth',block:'start'});}
  function setActive(i){
-   active=Math.max(0,Math.min(i,pages.length-1));
-   if(fill)fill.style.width=(pages.length>1?Math.round(active/(pages.length-1)*100):100)+'%';
-   if(ptxt)ptxt.textContent=(active+1)+' / '+pages.length;
-   tocList.querySelectorAll('.toc-item').forEach(function(b){b.classList.toggle('on',Number(b.getAttribute('data-i'))===active);});
+  active=Math.max(0,Math.min(i,pages.length-1));
+  if(fill)fill.style.width=(pages.length>1?Math.round(active/(pages.length-1)*100):100)+'%';
+  if(ptxt)ptxt.textContent=(active+1)+' / '+pages.length;
+  tocList.querySelectorAll('.toc-item').forEach(function(b){b.classList.toggle('on',Number(b.getAttribute('data-i'))===active);});
+  if(prevBtn)prevBtn.disabled=active===0;
+  if(nextBtn)nextBtn.textContent=active===pages.length-1?'完成培训':'下一部分';
  }
  function closeDrawer(){drawer.classList.remove('on');}
  function openDrawer(){drawer.classList.add('on');}
- document.getElementById('tocOpen').addEventListener('click',openDrawer);
+ var tocOpen=document.getElementById('tocOpen');if(tocOpen)tocOpen.addEventListener('click',openDrawer);
  var navToc=document.getElementById('navToc');if(navToc)navToc.addEventListener('click',openDrawer);
- document.getElementById('drawerMask').addEventListener('click',closeDrawer);
+ var drawerMask=document.getElementById('drawerMask');if(drawerMask)drawerMask.addEventListener('click',closeDrawer);
  if(prevBtn)prevBtn.addEventListener('click',function(){scrollToPage(Math.max(0,active-1));});
- if(nextBtn)nextBtn.addEventListener('click',function(){if(active<pages.length-1)scrollToPage(active+1);else{doneTip.classList.add('on');clearTimeout(tipTimer);tipTimer=setTimeout(function(){doneTip.classList.remove('on');},2200);}});
+ if(nextBtn)nextBtn.addEventListener('click',function(){
+  if(active<pages.length-1)scrollToPage(active+1);
+  else{pages.forEach(function(p,i){completed[i]=true;});save();renderProgress();doneTip.classList.add('on');clearTimeout(tipTimer);tipTimer=setTimeout(function(){doneTip.classList.remove('on');},2600);}
+ });
  var ticking=false;
- function updateFromScroll(){
-   ticking=false;
-   var target=window.innerHeight*.35, best=0, dist=Infinity;
-   pages.forEach(function(p,i){var d=Math.abs(p.getBoundingClientRect().top-target);if(p.getBoundingClientRect().bottom>110&&d<dist){dist=d;best=i;}});
-   setActive(best);
+ function updateFromScroll(){ticking=false;var target=window.innerHeight*.35,best=0,dist=Infinity;
+  pages.forEach(function(p,i){var r=p.getBoundingClientRect(),d=Math.abs(r.top-target);if(r.bottom>110&&d<dist){dist=d;best=i;}});
+  setActive(best);
  }
  window.addEventListener('scroll',function(){if(!ticking){ticking=true;window.requestAnimationFrame(updateFromScroll);}},{passive:true});
- renderTOC();setActive(0);updateFromScroll();
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
+ renderTOC();renderProgress();setActive(0);updateFromScroll();
 })();
 </script>
 
