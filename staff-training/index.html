@@ -129,6 +129,9 @@ button:focus-visible{outline:3px solid #E09F2D;outline-offset:3px;}
 
 .tag{display:inline-block;background:var(--amber-l);color:#8A5E14;border-radius:6px;font-size:11.5px;font-weight:700;padding:2px 8px;margin-bottom:8px;}
 
+.note{background:#F0F6F2;border-left:3px solid var(--amber);border-radius:9px;padding:9px 11px;margin-bottom:10px;font-size:12.5px;line-height:1.7;color:#3A4A42;}
+.note b{color:var(--green-d);font-weight:800;}
+
 
 
 .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px;}
@@ -579,7 +582,7 @@ body{overflow:auto;background:#F7F5F0}
 
      <li>接听来电、回复微信，登记预约：日期、人数、项目、电话</li>
 
-     <li><span class="hl">向客人准确介绍烧烤套餐一 100 元、套餐二 150 元及对应配置</li>
+     <li><span class="hl">向客人准确介绍烧烤套餐一 100 元、套餐二 150 元及对应配置</span></li>
 
      <li>设施损坏情况须记录并上报负责人，按核实后的营地规则处理</li>
 
@@ -1155,6 +1158,16 @@ body{overflow:auto;background:#F7F5F0}
  }
  window.addEventListener('scroll',function(){if(!ticking){ticking=true;window.requestAnimationFrame(updateFromScroll);}},{passive:true});
  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
+ var touchStart=null,pagesWrapEl=document.querySelector('.pages');
+ if(pagesWrapEl){
+  pagesWrapEl.addEventListener('touchstart',function(e){if(!e.touches||!e.touches.length)return;touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
+  pagesWrapEl.addEventListener('touchend',function(e){
+   if(!touchStart||!e.changedTouches||!e.changedTouches.length)return;
+   var dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y;
+   if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.2){if(dx<0&&active<pages.length-1)scrollToPage(active+1);else if(dx>0&&active>0)scrollToPage(active-1);}
+   touchStart=null;
+  },{passive:true});
+ }
  renderTOC();renderProgress();setActive(0);updateFromScroll();
 })();
 </script>
