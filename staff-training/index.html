@@ -1132,7 +1132,7 @@ body{overflow:auto;background:#F7F5F0}
   tocList.innerHTML=titles.map(function(t,i){return '<button class="toc-item" data-i="'+i+'"><span class="tn">'+(i+1)+'</span>'+t+'</button>';}).join('');
   tocList.querySelectorAll('.toc-item').forEach(function(b){b.addEventListener('click',function(){var i=Number(b.getAttribute('data-i'));closeDrawer();scrollToPage(i);});});
  }
- function scrollToPage(i){if(!pages[i])return;pages[i].scrollIntoView({behavior:'smooth',block:'start'});}
+ function scrollToPage(i){if(!pages[i])return;pages.forEach(function(p,j){p.classList.toggle('active',j===i);});try{pages[i].scrollIntoView({behavior:'smooth',block:'start'});}catch(e){}setActive(i);}
  function setActive(i){
   active=Math.max(0,Math.min(i,pages.length-1));
   if(fill)fill.style.width=(pages.length>1?Math.round(active/(pages.length-1)*100):100)+'%';
