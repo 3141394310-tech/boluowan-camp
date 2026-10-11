@@ -322,6 +322,24 @@ body{overflow:auto;background:#F7F5F0}
 .lp-item.done{background:#eef5eb;border-color:#b9d0b3;color:#275536}
 @media(max-width:520px){.learning-progress{padding:14px 12px}.lp-items{grid-template-columns:repeat(2,minmax(0,1fr))}.lp-item{font-size:11px;padding:8px}}
 
+
+/* Welcome page refined to match the user's original brand poster */
+#pb-intro{background:#fffef2!important;background-image:radial-gradient(ellipse at 50% 34%,rgba(255,228,153,.22),transparent 48%),radial-gradient(circle at 14% 18%,rgba(255,204,102,.18),transparent 3%),radial-gradient(circle at 86% 70%,rgba(255,204,102,.14),transparent 3%)!important;padding:26px 20px calc(96px + env(safe-area-inset-bottom))!important;}
+#pb-intro:before{width:min(82vw,78vh,760px)!important;background:radial-gradient(circle,rgba(255,231,163,.23),rgba(255,244,210,.13) 58%,transparent 72%)!important;animation:pb-soft-halo 8s ease-in-out infinite!important;}
+#pb-intro:after{inset:0!important;border:0!important;border-radius:0!important;}
+#pb-intro .pb-welcome-reference{width:min(100%,780px)!important;gap:0!important;}
+.pb-logo-badge{width:clamp(210px,43vh,340px);max-width:72vw;margin:0 auto clamp(24px,6vh,58px);animation:pb-badge-in .9s cubic-bezier(.2,.7,.25,1) both;}
+.pb-logo-badge svg{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 10px rgba(40,62,27,.07));}
+.pb-hello{font-family:Arial,Helvetica,sans-serif;font-size:clamp(76px,16vw,150px);font-weight:900;line-height:.98;letter-spacing:-.065em;color:#0d301b;margin:0 0 clamp(20px,4vh,38px);animation:pb-hello-in .7s ease-out .2s both;}
+#pb-intro .pb-welcome-reference h1{font-size:clamp(23px,4.2vw,42px);font-weight:900;letter-spacing:.01em;line-height:1.45;color:#102f1c;margin:0 0 16px;animation:pb-copy-in .7s ease-out .38s both;}
+#pb-intro .pb-welcome-copy{font-size:clamp(17px,3vw,29px);line-height:1.65;color:#172f20;animation:pb-copy-in .7s ease-out .5s both;}
+#pb-intro .pb-enter-poster{background:#12351f!important;color:#fff!important;border:0!important;box-shadow:0 5px 18px rgba(16,47,28,.13)!important;min-height:48px;padding:13px 27px!important;font-size:14px!important;letter-spacing:.04em;border-radius:999px!important;}
+@keyframes pb-badge-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes pb-hello-in{from{opacity:0;transform:translateY(15px);letter-spacing:-.09em}to{opacity:1;transform:translateY(0);letter-spacing:-.065em}}
+@keyframes pb-copy-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-height:720px){.pb-logo-badge{width:clamp(140px,27vh,210px);margin-bottom:14px}.pb-hello{font-size:clamp(58px,11vh,86px);margin-bottom:12px}#pb-intro .pb-welcome-reference h1{font-size:clamp(19px,3.5vh,26px);margin-bottom:8px}#pb-intro .pb-welcome-copy{font-size:clamp(14px,2.6vh,19px)}}
+@media(prefers-reduced-motion:reduce){.pb-logo-badge,.pb-hello,#pb-intro .pb-welcome-reference h1,#pb-intro .pb-welcome-copy{animation:none!important;opacity:1!important;transform:none!important}}
+
 </style>
 
 </head>
@@ -329,32 +347,30 @@ body{overflow:auto;background:#F7F5F0}
 <body>
 
 <div id="pb-intro" role="dialog" aria-label="菠萝湾营地欢迎页" aria-modal="true">
-  <div class="pb-welcome">
-  <div class="pb-brand-mark">菠萝湾营地 <span>PINEAPPLE BAY CAMP</span></div>
-  <div class="pb-mascot" aria-hidden="true">
-   <svg viewBox="0 0 260 300" role="img">
-    <ellipse cx="130" cy="277" rx="62" ry="10" fill="#173e2a" opacity=".12"/>
-    <g class="pb-leaves" stroke="#1e6b43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M128 76 Q91 40 104 16 Q131 30 132 63" fill="#77a95b"/>
-     <path d="M132 68 Q130 26 159 10 Q167 42 143 72" fill="#4d8a4d"/>
-     <path d="M139 73 Q166 34 190 43 Q180 70 145 83" fill="#8dbb65"/>
-     <path d="M122 76 Q84 57 70 72 Q91 94 126 91" fill="#477f4a"/>
+  <div class="pb-welcome pb-welcome-reference">
+  <div class="pb-logo-badge" aria-label="菠萝湾营地品牌徽章">
+   <svg viewBox="0 0 300 310" role="img" aria-hidden="true">
+    <path d="M150 12 268 78 268 222 150 292 32 222 32 78Z" fill="#c5d15e" stroke="#102f1c" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M150 22 258 83 258 217 150 282 42 217 42 83Z" fill="none" stroke="#efa92f" stroke-width="5" stroke-linejoin="round"/>
+    <g fill="#102f1c" font-family="sans-serif" font-weight="900" text-anchor="middle">
+     <text x="150" y="83" font-size="29" letter-spacing="4">菠萝湾营地</text>
     </g>
-    <path d="M76 104 Q83 72 130 70 Q177 72 185 104 L193 201 Q190 245 130 250 Q70 245 67 201Z" fill="#f5c95c" stroke="#285c3d" stroke-width="5"/>
-    <g stroke="#d69c36" stroke-width="3" opacity=".8"><path d="M88 95l15 17-16 14 17 16-16 16 17 17-15 17 16 17"/><path d="M130 78l-13 19 15 16-15 17 15 16-15 17 15 17-15 17 13 17"/><path d="M169 94l-15 17 16 14-17 16 16 16-17 17 16 17-15 17"/></g>
-    <path d="M76 151 Q130 133 184 151 L187 194 Q180 230 130 233 Q80 230 73 194Z" fill="#fff7e6" stroke="#285c3d" stroke-width="4"/>
-    <ellipse cx="111" cy="179" rx="5" ry="7" fill="#24452f"/><ellipse cx="150" cy="179" rx="5" ry="7" fill="#24452f"/>
-    <path d="M116 196 Q130 208 145 196" fill="none" stroke="#bd6049" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="94" cy="190" r="8" fill="#e98d77" opacity=".7"/><circle cx="166" cy="190" r="8" fill="#e98d77" opacity=".7"/>
-    <path d="M72 165 Q47 174 53 204 Q57 224 76 216" fill="#f5c95c" stroke="#285c3d" stroke-width="5"/>
-    <path d="M188 165 Q213 174 207 204 Q203 224 184 216" fill="#f5c95c" stroke="#285c3d" stroke-width="5"/>
-    <path d="M95 244 L90 267 Q104 278 121 269 L123 249 M139 249 L141 269 Q158 278 171 267 L165 244" fill="#3c754b" stroke="#285c3d" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M190 126q24 -22 28 -2q-3 13 -18 14" fill="none" stroke="#d9ae43" stroke-width="4" stroke-linecap="round"/>
+    <g stroke="#102f1c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M133 135Q104 103 112 83L143 116 145 80 163 116 190 94 179 132" fill="#82a94c"/>
+     <path d="M145 120 123 102M158 119 179 106" fill="none"/>
+     <path d="M111 142Q83 130 72 144Q90 164 115 159M110 163Q81 151 72 168Q92 187 113 180" fill="none"/>
+     <path d="M120 138Q150 119 180 140L196 191Q198 226 150 245Q102 226 104 191Z" fill="#f6ad39"/>
+     <path d="M118 151 183 220M104 181 163 240M137 132 196 192M182 151 114 221M194 183 137 239M150 139 150 241M110 201 181 201" fill="none"/>
+     <path d="M216 149h28M216 177h28" fill="none" stroke-width="4"/>
+    </g>
+    <g fill="#102f1c" font-family="sans-serif" font-weight="900" text-anchor="middle">
+     <text x="224" y="168" font-size="34">湾</text>
+    </g>
    </svg>
   </div>
-  <p class="pb-welcome-kicker">WELCOME TO THE TEAM</p>
-  <h1>欢迎来到菠萝湾营地</h1>
-  <p class="pb-welcome-copy">湾有趣 · 营地见<br/><span>从这里开始，认识我们的品牌与服务标准</span></p>
+  <div class="pb-hello">Hello</div>
+  <h1>欢迎来到菠萝湾营地大家庭～</h1>
+  <p class="pb-welcome-copy">很高兴你能成为我们公司团队的一员～</p>
  </div>
   <button class="pb-enter-poster" id="pb-enter" type="button" aria-label="点击进入员工培训">点击进入员工培训 <span aria-hidden="true">→</span></button>
 </div>
